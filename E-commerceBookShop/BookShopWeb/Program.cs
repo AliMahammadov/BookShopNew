@@ -1,4 +1,3 @@
-
 using BookShopData.Extensions;
 using BookShopService.Extensions;
 public class Program
@@ -20,15 +19,7 @@ public class Program
             app.UseExceptionHandler("/Home/Error");
         }
 
-
-
         app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseMvc();
-
-
         app.UseRouting();
         app.UseHttpsRedirection();
         app.UseAuthentication();
