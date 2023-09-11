@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model ICollection<Category>
+<h1>Index</h1>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Book</li>
+                <li class="breadcrumb-item active">See</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12 container">
+
+                <div class="card container">
+                    <div class="card-body">
+                        <h5 class="card-title">Categories</h5>
+                        <!-- Active Table -->
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var categories in Model ?? new List<Category>())
+                                {
+                                    <tr>
+                                        <th scope="row">@categories.Id</th>
+                                        <td>@categories.Name</td>
+                                        <td><a asp-area="Manage" asp-controller="Category" asp-action="Delete" asp-route-Id="@categories.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
+                                        <td><a asp-area="Manage" asp-controller="Category" asp-action="Edit" asp-route-Id="@categories.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Tables without borders -->
+                        @*
+                        <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                        @if (Model.CurrentPage > 1)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Previous</a></li>
+                        }
+                        @for (int i = 1; i <= Model.MaxPageCount; i++)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+                        }
+                        @if (Model.CurrentPage < Model.MaxPageCount)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Next</a></li>
+                        }
+                        </ul>
+                        </nav>*@
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->

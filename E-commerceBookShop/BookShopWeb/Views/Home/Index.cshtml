@@ -1,0 +1,141 @@
+﻿@model ICollection<Book>
+<!--BANNER START-->
+@*<div class="homer-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center text-center text-lg-left">
+                <div class="banner-description">
+                    <span class="small-heading animated fadeInRight delay-1s">BEST AVAILABLE</span>
+                    <h1 class="w-sm-100 w-md-100 w-lg-25 animated fadeInLeft delay-1s">BOOKS <span>COLLECTION</span></h1>
+                    <a href="book-shop/product-listing.html" class="btn animated fadeInLeft delay-1s">SHOP NOW </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<section id="slider-sec" class="slider-sec parallax" style="background: url('/book-shop/img/kitab.jpg');">
+</section>
+<!--BANNER END-->
+<!--START OUR SERVICES-->
+<div class="our-services">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="service">
+                    <div class="media">
+                        <div class="service-card">
+                            <i class="fas fa-truck mr-3"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0">Free Shipping Item</h5>
+                                <span>Order over $500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="service">
+                    <div class="media">
+                        <div class="service-card">
+                            <i class="fas fa-undo mr-3"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0">Money Back Guarantee</h5>
+                                <span>100% money back</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="service">
+                    <div class="media">
+                        <div class="service-card">
+                            <i class="fas fa-piggy-bank mr-3"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0">Cash On Delivery</h5>
+                                <span>Lorem ipsum dolor amet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="service">
+                    <div class="media">
+                        <div class="service-card">
+                            <i class="fas fa-hands-helping mr-3"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0">Help & Support</h5>
+                                <span>Call us: +0123,4567.89</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END OUR SERVICES-->
+<!-- START PORTOLIO SECTION -->
+<div class="portfolio-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- START PORTFOLIO HEADING -->
+            <div class="col-12">
+                <div class="portfolioHeading text-center">
+                    <h1 class="high-lighted-heading">Our Popular Product</h1>
+                    <p>Aenean imperdiet. Etiam ultricies nisi vel augue men tuhi spectrum alle me.</p>
+                </div>
+            </div>
+            <!-- END PORTFOLIO HEADING -->
+            <!-- START FILTERS -->
+            @*<div class="col-12">
+            <div class="clearfix d-flex justify-content-center">
+            <div id="js-filters-blog-posts" class="cbp-l-filters-button cbp-1-filters-alignCenter">
+            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All </div>
+            <div data-filter=".Classic" class="cbp-filter-item">Classics</div>
+            <div data-filter=".Fantasy" class="cbp-filter-item">Fantasy</div>
+            <div data-filter=".motion" class="cbp-filter-item">Historical Fiction</div>
+            </div>
+            </div>
+            </div>*@
+            <!-- END FILTERS -->
+            <!-- START PORTFOLIO IMAGES -->
+            <div class="col-12">
+                <div id="js-grid-blog-posts" class="cbp">
+                    @foreach (var books in Model)
+                    {
+                        <div class="cbp-item">
+                            <a class="portfolio-circle-cart" href="book-shop/shop-cart.html">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                            <div class="cbp-caption-defaultWrap  owl-theme sync-portfolio-carousel owl-carousel">
+                                <div class="item"> <a href="~/manage/img/book/@books.ImageUrl" class="cbp-caption" data-fancybox="gallery1" data-title="Book 1"><img src="~/manage/img/book/@books.ImageUrl" alt="Book 1"></a></div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <div class="cbp-l-grid-blog-title"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id" class="portfolio-title">@books.Name</a></div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="cbp-l-grid-blog-title"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id" class="portfolio-title">@books.ShortDescription</a></div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="cbp-l-grid-blog-desc portfolio-des">@books.Price AZN</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- END PORTFOLIO IMAGES -->
+
+        </div>
+    </div>
+</div>
+<!-- END PORTOLIO SECTION -->
+<!--START LATEST ARRIVALS-->
+<!--END LATEST ARRIVALS-->

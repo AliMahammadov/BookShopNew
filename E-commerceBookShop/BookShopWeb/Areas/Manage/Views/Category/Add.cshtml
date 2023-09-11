@@ -1,0 +1,55 @@
+﻿@using BookShopViewModel.Entites.CategoryVM;
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+@model AddCategoryVM
+<h1>Add</h1>
+
+<!-- End Header -->
+<!-- ======= Sidebar ======= -->
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Category</li>
+                <li class="breadcrumb-item active">Add</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+
+            <div class="col-lg-6 container">
+
+
+                <div class="card container">
+                    <div class="card-body">
+                        <h5 class="card-title">Add category</h5>
+
+                        <!-- No Labels Form -->
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            <div class="col-md-12" style="text-align:center;">
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <span asp-validation-for="Name" style="color:red;"></span>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </div>
+                        </form><!-- End No Labels Form -->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->
