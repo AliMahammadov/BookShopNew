@@ -26,6 +26,8 @@ namespace BookShopWeb.Controllers
                     Book = book,
                     Books = await bookService.GetBookForAsCategory(id),
                 };
+
+                //TerlanBey
                 return View(homeVM);
             }
             return RedirectToAction("Index");
