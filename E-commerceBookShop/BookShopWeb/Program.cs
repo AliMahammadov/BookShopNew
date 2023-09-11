@@ -23,11 +23,6 @@ public class Program
 
 
         app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseStaticFiles();
-        app.UseMvc();
-
 
         app.UseRouting();
         app.UseHttpsRedirection();
