@@ -36,6 +36,7 @@ namespace BookShopWeb.Controllers
         public IActionResult Contact()
         {
             return View();
+            //Seyd Xidmet edir
         }
     }
 }
