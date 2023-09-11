@@ -27,7 +27,6 @@ namespace BookShopWeb.Controllers
                     Books = await bookService.GetBookForAsCategory(id),
                 };
 
-                //TerlanBey
                 return View(homeVM);
             }
             return RedirectToAction("Index");
@@ -36,6 +35,8 @@ namespace BookShopWeb.Controllers
         public IActionResult Contact()
         {
             return View();
+            //Seyd Xidmet edir
+            //trrefreegrg
         }
     }
 }

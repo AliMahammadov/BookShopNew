@@ -20,7 +20,15 @@ public class Program
             app.UseExceptionHandler("/Home/Error");
         }
 
+
+
         app.UseStaticFiles();
+        app.UseStaticFiles();
+        app.UseStaticFiles();
+        app.UseStaticFiles();
+        app.UseMvc();
+
+
         app.UseRouting();
         app.UseHttpsRedirection();
         app.UseAuthentication();
