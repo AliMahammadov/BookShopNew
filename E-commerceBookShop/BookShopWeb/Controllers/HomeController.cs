@@ -36,6 +36,7 @@ namespace BookShopWeb.Controllers
         {
             return View();
             //Seyd Xidmet edir
+            //trrefreegrg
         }
     }
 }
