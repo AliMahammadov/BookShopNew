@@ -91,7 +91,7 @@ namespace BookShopWeb.Controllers
         }
         public async Task<IActionResult> Test()
         {
-            var user = await userManager.FindByNameAsync("Ali");
+            var user = await userManager.FindByNameAsync("Ruslan");
             await userManager.AddToRoleAsync(user, "Admin");
             return View();
         }

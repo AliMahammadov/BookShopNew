@@ -1,8 +1,8 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Contact";
 }
 
+@model ContactVM
 
 <!-- END HEADER NAVIGATION -->
 <!--Slider Start-->
@@ -12,6 +12,8 @@
 </div>*@
 <!--Slider End-->
 <!-- Contact Us Start -->
+<section id="slider-sec" class="slider-sec parallax" style="background: url('/book-shop/img/kitab.jpg');">
+</section>
 <section class="contact-sec" id="contact-sec">
 
     <div class="container">
@@ -51,30 +53,35 @@
             <div class="col-12 col-lg-6 contact-box text-center text-md-left wow slideInRight" data-wow-delay=".8s">
                 <div class="c-box wow fadeInRight">
                     <h4 class="small-heading">Leave Message</h4>
-                    <!--                        <p class="small-text">Lorem ipsum is simply dummy text of the printing and typesetting industry. </p>-->
-                    <form class="contact-form" id="contact-form-data">
+                    <p class="small-text">Lorem ipsum is simply dummy text of the printing and typesetting industry. </p>
+                    <form class="contact-form" id="contact-form-data" method="post">
                         <div class="row my-form">
                             <div class="col-md-12 col-sm-12">
                                 <div id="result"></div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" id="candidate_fname" name="firstName" placeholder="First Name" required="required">
+                                <input asp-for="Name" class="form-control" placeholder="First Name" required="required">
+                                <span asp-validation-for="Name" style="color:red;"></span>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" id="candidate_lname" name="lastName" placeholder="Last Name" required="required">
+                                <input asp-for="Surname" class="form-control" placeholder="Last Name" required="required">
+                                <span asp-validation-for="Surname" style="color:red;"></span>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="email" class="form-control" id="user_email" name="userEmail" placeholder="Email" required="required">
+                                <input asp-for="Email" class="form-control" placeholder="Email" required="required">
+                                <span asp-validation-for="Email" style="color:red;"></span>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" id="user_subject" name="userSubject" placeholder="Subject" required="required">
+                                <input asp-for="Subject" class="form-control" placeholder="Subject" required="required">
+                                <span asp-validation-for="Subject" style="color:red;"></span>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" id="user_message" name="userMessage" placeholder="Message" rows="7" required="required"></textarea>
+                                <textarea asp-for="Message" class="form-control" placeholder="Message" rows="7" required="required"></textarea>
+                                <span asp-validation-for="Message" style="color:red;"></span>
                             </div>
                             <div class="col-12">
-                                <button class="btn green-color-yellow-gradient-btn user-contact contact_btn" type="button">
-                                    SUBMIT
+                                <button class="btn btn-success" type="submit">
+                                    Göndər
                                 </button>
                             </div>
                         </div>
@@ -86,3 +93,13 @@
 </section>
 <!-- Contact Us End -->
 <!--footer1 sec start-->
+
+@section Scripts{
+
+<script src="~/libs/jquery-validate/jquery.validate.js"></script>
+<script src="~/libs/jquery-validate/jquery.validate.min.js"></script>
+
+<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
