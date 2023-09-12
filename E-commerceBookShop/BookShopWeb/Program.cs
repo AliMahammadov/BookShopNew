@@ -1,5 +1,6 @@
 using BookShopData.Extensions;
 using BookShopService.Extensions;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -7,9 +8,9 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-
         builder.Services.LoadDataLayerExtension(builder.Configuration);
         builder.Services.LoadServiceLayerExtension();
+   
 
         var app = builder.Build();
 
@@ -24,7 +25,6 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
-
         app.MapControllerRoute(
         name: "areas",
         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"

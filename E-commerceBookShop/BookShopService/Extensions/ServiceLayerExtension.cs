@@ -1,5 +1,8 @@
-﻿using BookShopService.Services.Abstraction;
+﻿using BookShopData.DAL;
+using BookShopEntity.Entities.User;
+using BookShopService.Services.Abstraction;
 using BookShopService.Services.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BookShopService.Extensions
@@ -10,6 +13,15 @@ namespace BookShopService.Extensions
         {
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddIdentity<AppUser, IdentityRole>(option =>
+            {
+                option.Password.RequireDigit = true;
+                option.Password.RequireNonAlphanumeric = false;
+                option.Password.RequiredLength = 5;
+                option.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstu vwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                option.Lockout.AllowedForNewUsers = true;
+
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
             return services;
         }
     }
