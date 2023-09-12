@@ -35,6 +35,7 @@
                                     <th scope="col">Surname</th>
                                     <th scope="col">Subject</th>
                                     <th scope="col">Message</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -48,6 +49,7 @@
                                         <td>@contacts.Subject</td>
                                         <td>@contacts.Subject</td>
                                         <td>@contacts.Message</td>
+                                        <td>@contacts.Email</td>
                                         <td><a asp-area="Manage" asp-controller="Book" asp-action="Delete" asp-route-Id="@contacts.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
                                         <td><a asp-area="Manage" asp-controller="Book" asp-action="Edit" asp-route-Id="@contacts.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
                                     </tr>
