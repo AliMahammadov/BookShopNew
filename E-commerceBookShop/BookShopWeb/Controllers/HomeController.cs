@@ -3,6 +3,8 @@ using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace BookShopWeb.Controllers
 {
@@ -42,6 +44,16 @@ namespace BookShopWeb.Controllers
         public async Task<IActionResult> Contact(Contact contact)
         {
             if (!ModelState.IsValid) return View();
+            return View();
+        }
+        public async Task<IActionResult> AddBasket(/*int? id*/)
+        {
+
+            //List<int> ids = new List<int>();
+            //ids.Add((int)id);
+            //string basket = JsonConvert.SerializeObject(ids);
+            //HttpContext.Response.Cookies.Append("basket", basket);
+            //return Content(HttpContext.Request.Cookies["basket"]);
             return View();
         }
     }
