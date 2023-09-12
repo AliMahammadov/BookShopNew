@@ -315,6 +315,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\manage\img\book\" />
     <Folder Include="wwwroot\manage\img\category\" />
+    <Folder Include="wwwroot\libs\" />
   </ItemGroup>
 
 </Project>

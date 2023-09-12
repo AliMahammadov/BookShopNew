@@ -18,7 +18,7 @@ namespace BookShopService.Extensions
                 option.Password.RequireDigit = true;
                 option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequiredLength = 5;
-                option.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstu vwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                option.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
                 option.Lockout.AllowedForNewUsers = true;
 
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();

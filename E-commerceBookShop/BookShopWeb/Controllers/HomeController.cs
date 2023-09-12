@@ -1,4 +1,5 @@
-﻿using BookShopEntity.Entity;
+﻿using BookShopEntity.Entities;
+using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +15,10 @@ namespace BookShopWeb.Controllers
             this.bookService = bookService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index() => View(await bookService.GetAllBooksAsync());
 
+        [HttpGet]
         public async Task<IActionResult> Detail(int? id)
         {
             Book book = await bookService.GetBookIncludeAsync(id);
@@ -32,10 +35,14 @@ namespace BookShopWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Contact()
-        {
-            return View();
+        [HttpGet]
+        public IActionResult Contact() => View();
 
+        [HttpPost]
+        public async Task<IActionResult> Contact(Contact contact)
+        {
+            if (!ModelState.IsValid) return View();
+            return View();
         }
     }
 }

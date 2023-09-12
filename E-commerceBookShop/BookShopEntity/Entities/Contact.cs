@@ -2,7 +2,7 @@
 
 namespace BookShopEntity.Entities
 {
-    public class Contact:BaseEntity
+    public class Contact : BaseEntity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
