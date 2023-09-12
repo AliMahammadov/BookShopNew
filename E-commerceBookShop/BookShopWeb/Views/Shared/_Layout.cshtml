@@ -228,6 +228,28 @@
                                         <li class="nav-item">
                                             <a class="nav-link" asp-controller="Home" asp-action="Contact">CONTACT</a>
                                         </li>
+                                        <li class="nav-item">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                                <li><a class="nav-link" asp-area="Manage" asp-action="index" asp-controller="Home"> @User.Identity.Name</a></li>
+
+                                                }
+                                                else if (!User.IsInRole("Admin"))
+                                                {
+
+                                                <a class="nav-link" asp-action="Index" asp-controller="Home"> @User.Identity.Name</a>
+                                                <a class="nav-link" asp-action="Signout" asp-controller="Account"> Exit</a>
+
+                                                }
+                                            }
+                                           
+                                            else
+                                            {
+                                            <a class="nav-link" asp-controller="Account" asp-action="Login">LOGIN</a>
+                                            }
+                                        </li>
 
                                     </ul>
                                 </div>
