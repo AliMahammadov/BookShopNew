@@ -1,6 +1,7 @@
 ﻿using BookShopEntity.Entities;
 using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
+using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,10 +12,12 @@ namespace BookShopWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IBookService bookService;
+        private readonly IContactService contactService;
 
-        public HomeController(IBookService bookService)
+        public HomeController(IBookService bookService, IContactService contactService)
         {
             this.bookService = bookService;
+            this.contactService = contactService;
         }
 
         [HttpGet]
@@ -41,9 +44,10 @@ namespace BookShopWeb.Controllers
         public IActionResult Contact() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Contact(Contact contact)
+        public async Task<IActionResult> Contact(ContactVM contactVM)
         {
             if (!ModelState.IsValid) return View();
+            await contactService.AddContactAsync(contactVM);
             return View();
         }
         public async Task<IActionResult> AddBasket(/*int? id*/)

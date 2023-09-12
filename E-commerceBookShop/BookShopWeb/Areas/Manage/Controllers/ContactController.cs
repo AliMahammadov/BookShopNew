@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BookShopService.Services.Abstraction;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopWeb.Areas.Manage.Controllers
@@ -6,7 +7,14 @@ namespace BookShopWeb.Areas.Manage.Controllers
     [Area("Manage"), Authorize(Roles = "Super Admin,Admin")]
     public class ContactController : Controller
     {
+        private readonly IContactService contactService;
+
+        public ContactController(IContactService contactService)
+        {
+            this.contactService = contactService;
+        }
+
         [HttpGet]
-        public IActionResult Index() => View();
+        public async Task<IActionResult> Index() => View( await contactService.GetAllContactsAsync());
     }
 }

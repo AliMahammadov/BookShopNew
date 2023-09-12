@@ -54,7 +54,7 @@
                 <div class="c-box wow fadeInRight">
                     <h4 class="small-heading">Leave Message</h4>
                     <p class="small-text">Lorem ipsum is simply dummy text of the printing and typesetting industry. </p>
-                    <form class="contact-form" id="contact-form-data" method="post">
+                    <form id="contact" class="contact-form" id="contact-form-data" method="post">
                         <div class="row my-form">
                             <div class="col-md-12 col-sm-12">
                                 <div id="result"></div>
@@ -101,5 +101,35 @@
 
 <script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 <script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+@*<script>
+    $(document).ready(function () {
+
+        $('#contact').submit(function (e) {
+            e.preventDefault();
+            const isValid = $(e.currentTarget).valid();
+            if(!isValid)
+            return;
+
+            const formData = new FormData(e.currentTarget);
+
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success:function(response) {
+
+                },
+                error:function(response) {
+
+                }
+
+            })
+        })
+
+    });
+</script>*@
 
 }
