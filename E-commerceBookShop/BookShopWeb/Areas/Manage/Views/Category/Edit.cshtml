@@ -1,14 +1,16 @@
 ﻿
 @{
-    ViewData["Title"] = "Add";
+    ViewData["Title"] = "Edit";
 }
 
-@model CategoryVM
-<h1>Add</h1>
+<h1>Edit</h1>
 
+@model CategoryVM
 <!-- End Header -->
 <!-- ======= Sidebar ======= -->
-
+@{
+    string[] languages = { "Azərbaycan", "İngilis", "Rus", "Alman", "Fransız" };
+}
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -25,20 +27,24 @@
 
             <div class="col-lg-6 container">
 
-
                 <div class="card container">
                     <div class="card-body">
-                        <h5 class="card-title">Add category</h5>
+                        <h5 class="card-title">Edit Category</h5>
 
                         <!-- No Labels Form -->
                         <form class="row g-3" method="post" enctype="multipart/form-data">
+                            <div class="col-md-12" style="text-align:center;">
+                                <span style="color:red;">@ViewBag.Message</span>
+                            </div>
+
                             <div class="col-md-12" style="text-align:center;">
                                 <input asp-for="Name" class="form-control" placeholder="Name">
                                 <span asp-validation-for="Name" style="color:red;"></span>
                             </div>
 
                             <div>
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <a class="btn btn-warning" asp-controller="Category" asp-action="Index">Cancel</a>
                             </div>
                         </form><!-- End No Labels Form -->
 

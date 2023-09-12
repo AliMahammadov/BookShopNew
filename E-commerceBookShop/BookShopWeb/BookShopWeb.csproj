@@ -314,6 +314,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\manage\img\book\" />
+    <Folder Include="wwwroot\manage\img\category\" />
   </ItemGroup>
 
 </Project>

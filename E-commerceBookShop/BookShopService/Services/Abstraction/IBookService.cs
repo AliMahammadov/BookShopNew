@@ -11,5 +11,7 @@ namespace BookShopService.Services.Abstraction
         Task<Book> GetBookByIdAsync(int? id);
         Task<Book> GetBookIncludeAsync(int? id);
         Task<ICollection<Book>> GetBookForAsCategory(int? id);
+        Task<BookVM> GetBookEditAsync(int? id);
+        Task UpdateBookAsync(int? id, BookVM bookVM);
     }
 }

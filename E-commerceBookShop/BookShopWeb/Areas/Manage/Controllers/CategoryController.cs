@@ -1,5 +1,6 @@
 ﻿using BookShopService.Services.Abstraction;
-using BookShopViewModel.Entites.CategoryVM;
+using BookShopService.Services.Concrete;
+using BookShopViewModel.Entites;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopWeb.Areas.Manage.Controllers
@@ -19,11 +20,31 @@ namespace BookShopWeb.Areas.Manage.Controllers
         public IActionResult Add() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddCategoryVM categoryVM)
+        public async Task<IActionResult> Add(CategoryVM categoryVM)
         {
             if (!ModelState.IsValid) return View();
             await categoryService.AddCategoryAsync(categoryVM);
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id is null) return BadRequest();
+                var category = await categoryService.EditCategoryAsync(id);
+            return View(category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int? id, CategoryVM categoryVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Message = "Fill every input";
+                return View();
+            }
+            await categoryService.UpdateCategoryAsync(id, categoryVM);
+            return RedirectToAction("Index");
         }
     }
 }
