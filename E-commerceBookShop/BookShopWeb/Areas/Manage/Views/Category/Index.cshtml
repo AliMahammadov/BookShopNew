@@ -12,7 +12,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li class="breadcrumb-item">Book</li>
+                <li class="breadcrumb-item">Category</li>
                 <li class="breadcrumb-item active">See</li>
             </ol>
         </nav>
@@ -31,6 +31,8 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Created</th>
+                                    <th scope="col">Updated</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -40,7 +42,8 @@
                                     <tr>
                                         <th scope="row">@categories.Id</th>
                                         <td>@categories.Name</td>
-                                        <td><a asp-area="Manage" asp-controller="Category" asp-action="Delete" asp-route-Id="@categories.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
+                                        <td>@categories.CreateAt</td>
+                                        <td>@categories.UpdateAt</td>
                                         <td><a asp-area="Manage" asp-controller="Category" asp-action="Edit" asp-route-Id="@categories.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
                                     </tr>
                                 }

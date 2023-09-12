@@ -11,7 +11,8 @@ namespace BookShopViewModel.Entites
         public string SKU { get; set; }
         public string Author { get; set; }
         public string Publisher { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
+        public string? ImageUrl{ get; set; }
         public float Price { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }

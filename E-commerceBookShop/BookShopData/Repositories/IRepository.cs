@@ -8,5 +8,6 @@ namespace BookShopData.Repositories
         Task<ICollection<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includeProperties);
         Task<T> GetByIdAsync(int? id);
         Task DeleteAsync(T entity);
+        Task<T> UpdateAsync(T entity);
     }
 }

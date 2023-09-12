@@ -43,5 +43,10 @@ namespace BookShopData.Repositories
             return await Table.FindAsync(id);
         }
 
+        public async Task<T> UpdateAsync(T entity)
+        {
+            await Task.Run(() => Table.Update(entity));
+            return entity;
+        }
     }
 }

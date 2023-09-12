@@ -1,11 +1,13 @@
 ﻿using BookShopEntity.Entities;
-using BookShopViewModel.Entites.CategoryVM;
+using BookShopViewModel.Entites;
 
 namespace BookShopService.Services.Abstraction
 {
     public interface ICategoryService
     {
-        Task AddCategoryAsync(AddCategoryVM categoryVM);
+        Task AddCategoryAsync(CategoryVM categoryVM);
         Task<ICollection<Category>> GetAllCategoryAsync();
+        Task<CategoryVM> EditCategoryAsync(int? id);
+        Task UpdateCategoryAsync(int? id, CategoryVM categoryVM);
     }
 }

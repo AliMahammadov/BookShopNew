@@ -1,5 +1,6 @@
 ﻿using BookShopData.DAL;
 using BookShopData.UnitOfWorks;
+using BookShopEntity.Entities;
 using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
@@ -75,6 +76,30 @@ namespace BookShopService.Services.Concrete
             return book;
         }
 
+        public async Task<BookVM> GetBookEditAsync(int? id)
+        {
+            var book = await unitOfWork.GetRepository<Book>().GetByIdAsync(id);
+
+            BookVM vm = new BookVM()
+            {
+                Name = book.Name,
+                Language = book.Language,
+                PageCount = book.PageCount,
+                SKU = book.SKU,
+                Author = book.Author,
+                Publisher = book.Publisher,
+                ImageUrl = book.ImageUrl,
+                Price = book.Price,
+                ShortDescription = book.ShortDescription,
+                LongDescription = book.LongDescription,
+                Facebook = book.Facebook,
+                Instagram = book.Instagram,
+                CategoryId = book.CategoryId
+            };
+
+            return vm;
+        }
+
         public async Task<ICollection<Book>> GetBookForAsCategory(int? id)
         {
             var book = await unitOfWork.GetRepository<Book>().GetByIdAsync(id);
@@ -84,6 +109,38 @@ namespace BookShopService.Services.Concrete
         public async Task<Book> GetBookIncludeAsync(int? id)
         {
             return await appDbContext.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public async Task UpdateBookAsync(int? id, BookVM bookVM)
+        {
+            var book = await unitOfWork.GetRepository<Book>().GetByIdAsync(id);
+
+            if (bookVM is not null || book is not null)
+            {
+                IFormFile file = bookVM.Image;
+                string fileName = Guid.NewGuid().ToString() + file.FileName;
+                using var stream = new FileStream(Path.Combine(environment.WebRootPath, "manage", "img", "book", fileName), FileMode.Create);
+                await file.CopyToAsync(stream);
+                await stream.FlushAsync();
+
+                book.Name = bookVM.Name;
+                book.Language = bookVM.Language;
+                book.PageCount = bookVM.PageCount;
+                book.SKU = bookVM.SKU;
+                book.Author = bookVM.Author;
+                book.Publisher = bookVM.Publisher;
+                book.ImageUrl = fileName;
+                book.Price = bookVM.Price;
+                book.ShortDescription = bookVM.ShortDescription;
+                book.LongDescription = bookVM.LongDescription;
+                book.Facebook = bookVM.Facebook;
+                book.Instagram = bookVM.Instagram;
+                book.CategoryId = bookVM.CategoryId;
+                book.UpdateAt = DateTime.Now;
+
+                await unitOfWork.GetRepository<Book>().UpdateAsync(book);
+                await unitOfWork.SaveChangeAsync();
+            }
         }
     }
 }
