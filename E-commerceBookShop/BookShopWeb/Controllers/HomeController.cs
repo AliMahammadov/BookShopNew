@@ -1,5 +1,4 @@
-﻿using BookShopEntity.Entities;
-using BookShopEntity.Entity;
+﻿using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
@@ -11,11 +10,13 @@ namespace BookShopWeb.Controllers
     {
         private readonly IBookService bookService;
         private readonly IContactService contactService;
+        private readonly IBasketContactService basketContactService;
 
-        public HomeController(IBookService bookService, IContactService contactService)
+        public HomeController(IBookService bookService, IContactService contactService, IBasketContactService basketContactService)
         {
             this.bookService = bookService;
             this.contactService = contactService;
+            this.basketContactService = basketContactService;
         }
 
         [HttpGet]
@@ -61,5 +62,43 @@ namespace BookShopWeb.Controllers
                 message = "Bir az sonra yenidən yoxlayın!"
             });
         }
+        [HttpGet]
+        public async Task<IActionResult> AddBasket(int? id)
+        {
+            Book book = await bookService.GetBookIncludeAsync(id);
+            if (book is not null)
+            {
+                HomeVM homeVM = new HomeVM()
+                {
+                    Book = book,
+                    Books = await bookService.GetBookForAsCategory(id),
+                };
+
+                return View(homeVM);
+            }
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddBasket(HomeVM homeVM)
+        {
+                await basketContactService.AddBasketAsync(homeVM);
+
+                //return Json(new
+                //{
+                //    error = false,
+                //    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                //});
+            
+
+            //return Json(new
+            //{
+            //    error = true,
+            //    message = "Bir az sonra yenidən yoxlayın!"
+            //});
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
+

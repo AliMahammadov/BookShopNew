@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model ICollection<BasketContact>
+<h1>Index</h1>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Contact</li>
+                <li class="breadcrumb-item active">See</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12 container">
+
+                <div class="card container">
+                    <div class="card-body">
+                        <h5 class="card-title">Contacts</h5>
+                        <!-- Active Table -->
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    @*<th scope="col">Image</th>*@
+                                    <th scope="col">Adı</th>
+                                    <th scope="col">Soy adı</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Təklif və iradlar</th>
+                                    <th scope="col">BookId</th>
+                                    <th scope="col">Kitab adı</th>
+                                    <th scope="col">Yazıçı</th>
+                                    <th scope="col">Qiymət</th>
+                                    <th scope="col">Sifariş tarixi</th>
+                                    <th scope="col"></th>
+                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var contacts in Model ?? new List<BasketContact>())
+                                {
+                                    <tr>
+                                        <th scope="row">@contacts.Id</th>
+                                        @*<th scope="row"><img style="width:70px;" src="~/manage/img/book/@contacts.ImageUrl" /></th>*@
+                                        <td>@contacts.Name</td>
+                                        <td>@contacts.Surname</td>
+                                        <td>@contacts.Phone</td>
+                                        <td>@contacts.Email</td>
+                                        <td>@contacts.Message</td>
+                                        <td>@contacts.BookId</td>
+                                        <td>@contacts.BookName</td>
+                                        <td>@contacts.Author</td>
+                                        <td>@contacts.BookPrice Manat</td>
+                                        <td>@contacts.CreateAt</td>
+                                      @*   <td><a asp-area="Manage" asp-controller="" asp-action="Delete" asp-route-Id="@contacts.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
+                                        <td><a asp-area="Manage" asp-controller="" asp-action="Edit" asp-route-Id="@contacts.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td> *@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Tables without borders -->
+                        @*
+                        <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                        @if (Model.CurrentPage > 1)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Previous</a></li>
+                        }
+                        @for (int i = 1; i <= Model.MaxPageCount; i++)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+                        }
+                        @if (Model.CurrentPage < Model.MaxPageCount)
+                        {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Next</a></li>
+                        }
+                        </ul>
+                        </nav>*@
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->

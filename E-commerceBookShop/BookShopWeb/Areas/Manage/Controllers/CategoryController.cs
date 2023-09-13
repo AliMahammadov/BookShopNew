@@ -1,11 +1,12 @@
 ﻿using BookShopService.Services.Abstraction;
 using BookShopService.Services.Concrete;
 using BookShopViewModel.Entites;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopWeb.Areas.Manage.Controllers
 {
-    [Area("Manage")]
+    [Area("Manage"), Authorize(Roles = "Super Admin,Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
