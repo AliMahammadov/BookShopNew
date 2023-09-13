@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookShopWeb.Areas.Manage.Controllers
 {
-    [Area("Manage"),Authorize]
+    [Area("Manage"), Authorize(Roles = "Super Admin,Admin")]
     public class BookController : Controller
     {
         private readonly IBookService bookService;
