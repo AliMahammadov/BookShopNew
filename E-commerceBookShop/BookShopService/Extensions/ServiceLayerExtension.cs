@@ -14,6 +14,7 @@ namespace BookShopService.Extensions
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddIdentity<AppUser, IdentityRole>(option =>
             {
                 option.Password.RequireDigit = true;
