@@ -46,9 +46,22 @@ namespace BookShopWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Contact(ContactVM contactVM)
         {
-            if (!ModelState.IsValid) return View();
-            await contactService.AddContactAsync(contactVM);
-            return View();
+            if (ModelState.IsValid)
+            {
+                await contactService.AddContactAsync(contactVM);
+
+                return Json(new
+                {
+                    error = false,
+                    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                });
+            }
+
+            return Json(new
+            {
+                error = true,
+                message = "Bir az sonra yenidən yoxlayın!"
+            });
         }
         public async Task<IActionResult> AddBasket(/*int? id*/)
         {
