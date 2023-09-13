@@ -246,9 +246,9 @@
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link " asp-area="E-commerceBookShop" asp-controller="Home" asp-action="Index">
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="bi bi-grid"></i>
-                    <span>Home</span>
+                    <span>Web Site</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
@@ -360,7 +360,7 @@
                     <i class="bi bi-bar-chart"></i><span>Contact</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                   
+
                     <li>
                         <a asp-area="Manage" asp-controller="Contact" asp-action="Index">
                             <i class="bi bi-circle"></i><span>See</span>
@@ -401,17 +401,45 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-gem"></i><span>SİFARİŞLƏRİM</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-gem"></i><span>Sifarişlərim</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a asp-area="Manage" asp-controller="BasketContact" asp-action="İndex">
+                        <a asp-area="Manage" asp-controller="BasketContact" asp-action="Index">
                             <i class="bi bi-circle"></i><span>See</span>
                         </a>
-                    </li>
+                        @*<li>
+                        <a asp-area="Manage" asp-controller="Blog" asp-action="Add">
+                        <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                        </li>*@
                     <li>
-                       @*  <a asp-area="Manage" asp-controller="Blog" asp-action="Index">
+                            @*  <a asp-area="Manage" asp-controller="Blog" asp-action="Index">
+                        <a asp-area="Manage" asp-controller="User" asp-action="Index">
+                        <i class="bi bi-circle"></i><span>See</span>
+                        </a> *@
+                    </li>
+                </ul>
+            </li><!-- End Icons Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-gem"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="Manage" asp-controller="User" asp-action="Index">
                             <i class="bi bi-circle"></i><span>See</span>
+                        </a>
+                        @*<li>
+                        <a asp-area="Manage" asp-controller="Blog" asp-action="Add">
+                        <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                        </li>*@
+                    <li>
+                            @*  <a asp-area="Manage" asp-controller="Blog" asp-action="Index">
+                        <a asp-area="Manage" asp-controller="User" asp-action="Index">
+                        <i class="bi bi-circle"></i><span>See</span>
                         </a> *@
                     </li>
                 </ul>

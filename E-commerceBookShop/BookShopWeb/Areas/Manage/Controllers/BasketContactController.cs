@@ -14,7 +14,7 @@ namespace BookShopWeb.Areas.Manage.Controllers
             this.basketContactService = basketContactService;
         }
  
-        public async Task<IActionResult> İndex()
+        public async Task<IActionResult> Index()
         {
             return View(await basketContactService.GetAllContactsAsync());
         }

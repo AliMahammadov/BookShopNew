@@ -1,6 +1,5 @@
 ﻿using BookShopEntity.Entities.User;
 using BookShopViewModel.Entites.AccountVM;
-using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
