@@ -14,5 +14,6 @@ namespace BookShopData.DAL
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<BasketContact> BasketContacts { get; set; }
     }
 }

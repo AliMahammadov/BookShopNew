@@ -1,11 +1,8 @@
-﻿using BookShopEntity.Entities;
-using BookShopEntity.Entity;
+﻿using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
 
 namespace BookShopWeb.Controllers
 {
@@ -13,11 +10,13 @@ namespace BookShopWeb.Controllers
     {
         private readonly IBookService bookService;
         private readonly IContactService contactService;
+        private readonly IBasketContactService basketContactService;
 
-        public HomeController(IBookService bookService, IContactService contactService)
+        public HomeController(IBookService bookService, IContactService contactService, IBasketContactService basketContactService)
         {
             this.bookService = bookService;
             this.contactService = contactService;
+            this.basketContactService = basketContactService;
         }
 
         [HttpGet]
@@ -63,15 +62,43 @@ namespace BookShopWeb.Controllers
                 message = "Bir az sonra yenidən yoxlayın!"
             });
         }
-        public async Task<IActionResult> AddBasket(/*int? id*/)
+        [HttpGet]
+        public async Task<IActionResult> AddBasket(int? id)
         {
+            Book book = await bookService.GetBookIncludeAsync(id);
+            if (book is not null)
+            {
+                HomeVM homeVM = new HomeVM()
+                {
+                    Book = book,
+                    Books = await bookService.GetBookForAsCategory(id),
+                };
 
-            //List<int> ids = new List<int>();
-            //ids.Add((int)id);
-            //string basket = JsonConvert.SerializeObject(ids);
-            //HttpContext.Response.Cookies.Append("basket", basket);
-            //return Content(HttpContext.Request.Cookies["basket"]);
+                return View(homeVM);
+            }
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> AddBasket(HomeVM homeVM)
+        {
+                await basketContactService.AddBasketAsync(homeVM);
+
+                //return Json(new
+                //{
+                //    error = false,
+                //    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                //});
+            
+
+            //return Json(new
+            //{
+            //    error = true,
+            //    message = "Bir az sonra yenidən yoxlayın!"
+            //});
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
+

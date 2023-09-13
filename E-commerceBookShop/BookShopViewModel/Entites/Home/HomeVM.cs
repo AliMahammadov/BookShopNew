@@ -12,6 +12,7 @@ namespace BookShopViewModel.Entites.Home
         public ICollection<Contact> Contacts { get; set; }
         public ICollection<Category> Categories{ get; set; }
         public ICollection<AppUser> AppUsers { get; set; }
+        public BasketContactVM BasketContactVM { get; set; }
 
     }
 }

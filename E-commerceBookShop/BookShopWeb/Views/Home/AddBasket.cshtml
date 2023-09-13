@@ -1,15 +1,18 @@
-﻿<!--slider sec strat-->
-<section id="slider-sec" class="slider-sec parallax" style="background: url('img/banner1.3.jpg');">
+﻿@using BookShopViewModel.Entites.Home;
+@model HomeVM
+@* <!--slider sec strat-->
+<
+section id="slider-sec" class="slider-sec parallax" style="background: url('C:\Users\user\Desktop\BackEnd\BookShopNew\E-commerceBookShop\BookShopWeb\wwwroot\book-shop\img\Screenshot 2023-07-28 100816.png');">
 </section>
-<!--slider sec end-->
+<!--slider sec end--> *@
 <!-- START HEADING SECTION -->
 <div class="about_content">
 
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-10  text-center text-lg-left wow slideInUp" data-wow-duration="2s">
-                <h1 class="heading">Get Ready For Checkout?</h1>
-                <p class="para_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dolores explicabo laudantium, omnis provident consectetur adipisicing elit quam reiciendis voluptatum?</p>
+                <h1 class="heading">Sifarişinizi rəsmiləşdirin.</h1>
+                <p class="para_text">Sifarişi rəsmiləşdirdikdən sonra ən qısa zamanda sizə geri dönüş edəcəyik.</p>
             </div>
         </div>
     </div>
@@ -18,7 +21,7 @@
     <!-- START SHOP CART SECTION -->
     <div class="shop-cart wow slideInUp" data-wow-duration="2s">
         <div class="container">
-            <!-- START SHOP CART TABLE -->
+  @*           <!-- START SHOP CART TABLE -->
             <div class="row pt-5">
                 <div class="col-12 col-md-12  cart_table wow fadeInUp animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
                     <div class="table-responsive">
@@ -151,13 +154,64 @@
                     </div>
                 </div>
             </div>
-            <!-- END SHOP CART TABLE -->
+            <!-- END SHOP CART TABLE --> *@
             <!-- START SHOP CART CHECKOUT FORM -->
             <div class="row pt-5">
                 <div class="col-12 col-lg-6 wow slideInLeft" data-wow-duration="2s">
                     <div class="calculate-shipping">
-                        <h4 class="heading">Calculate Shipping</h4>
-                        <form>
+                        <h4 class="heading">Əlaqə məlumatlarınızı daxil edin</h4>
+    
+                        
+                            <form  id="contact" class="contact-form" id="contact-form-data" method="post">
+
+                            <div class="col-12 col-md-6">
+                                <input type="hidden" asp-for="@Model.Book.Price" class="form-control" placeholder="Soy Ad">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="hidden" asp-for="@Model.Book.Name" class="form-control" placeholder="Soy Ad">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="hidden" asp-for="@Model.Book.Author" class="form-control" placeholder="Soy Ad">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="hidden" asp-for="@Model.Book.Id" class="form-control" placeholder="Soy Ad">
+                            </div>
+
+                                <div class="row my-form">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div id="result"></div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                    <input asp-for="@Model.BasketContactVM.Name" class="form-control" placeholder="Ad" required="required">
+                                    <span asp-validation-for="@Model.BasketContactVM.Name" style="color:red;"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                    <input asp-for="@Model.BasketContactVM.Surname" class="form-control" placeholder="Soy Ad">
+                                    <span asp-validation-for="@Model.BasketContactVM.Surname" style="color:red;"></span>
+                                    </div>
+                                <div class="col-12 col-md-6">
+                                    <input asp-for="@Model.BasketContactVM.Phone" class="form-control" placeholder="Telefon nömrəsi " required="required">
+                                    <span asp-validation-for="@Model.BasketContactVM.Phone" style="color:red;"></span>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input asp-for="@Model.BasketContactVM.Email" class="form-control" placeholder="Email">
+                                    <span asp-validation-for="@Model.BasketContactVM.Email" style="color:red;"></span>
+                                </div>
+                                <div class="col-12">
+                                    <textarea asp-for="@Model.BasketContactVM.Message" class="form-control" placeholder="Təklif və ya iradınız.(Əgər varsa)" rows="7"></textarea>
+                                    <span asp-validation-for="@Model.BasketContactVM.Message" style="color:red;"></span>
+                                </div>
+                                    <div class="col-12"> 
+                                        <button class="btn btn-success" type="submit">
+                                            Sifariş et
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        
+          @*             <form>
                             <div class="form-group">
                                 <label class="select form-control">
                                     <select name="country" id="states">
@@ -182,46 +236,30 @@
                                 <input class="form-control" placeholder="Postal/Zip Code">
                             </div>
                             <a href="#" class="btn yellow-color-green-gradient-btn">Calculate</a>
-                        </form>
+                        </form> *@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 wow slideInRight" data-wow-duration="2s">
                     <div class="card-total">
-                        <h4 class="heading">Card Total</h4>
+                        <h4 class="heading">Kitab Məlumatları</h4>
                         <table>
                             <tr>
-                                <td>Subtotal</td>
-                                <td>$251.00</td>
+                                <td>Ödəniləcək məbləğ</td>
+                                <td>@Model.Book.Price Manat</td>
+
                             </tr>
                             <tr>
-                                <td>Shipping</td>
-                                <td>
-                                    <ul class="color-grey">
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="flat-rate" name="shipping" class="custom-control-input" checked="">
-                                                <label class="custom-control-label" for="flat-rate">Flat Rate : $49.00</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="free-shipping">Free Shipping</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="cod-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="cod-shipping">Cash on Delivery</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </td>
+                         
                             </tr>
                             <tr>
-                                <td>Total</td>
-                                <td>$300.00</td>
+                                <td>Kitabın adı</td>
+                                <td>@Model.Book.Name</td>
                             </tr>
+                            <tr>
+                                <td>Müəllif</td>
+                                <td>@Model.Book.Author</td>
+                            </tr>
+
                         </table>
                     </div>
                 </div>
