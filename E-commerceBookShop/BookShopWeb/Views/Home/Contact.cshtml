@@ -93,43 +93,76 @@
 </section>
 <!-- Contact Us End -->
 <!--footer1 sec start-->
+@section AddCss{
+    <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
+    <link href="~/libs/toastr.js/toastr.min.css" rel="stylesheet" />
+}
 
 @section Scripts{
 
-<script src="~/libs/jquery-validate/jquery.validate.js"></script>
-<script src="~/libs/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+    <script src="~/libs/jquery-validate/jquery.validate.min.js"></script>
 
-<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
-@*<script>
-    $(document).ready(function () {
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
 
-        $('#contact').submit(function (e) {
-            e.preventDefault();
-            const isValid = $(e.currentTarget).valid();
-            if(!isValid)
-            return;
+    <script>
 
-            const formData = new FormData(e.currentTarget);
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
 
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success:function(response) {
+        $(document).ready(function () {
 
-                },
-                error:function(response) {
+            $('#contact').submit(function (e) {
+                e.preventDefault();
+                const isValid = $(e.currentTarget).valid();
+                if (!isValid)
+                    return;
 
-                }
+                const formData = new FormData(e.currentTarget);
 
-            })
-        })
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        console.log(response);
+                        if (response.error == false) {
+                            e.currentTarget.reset();
+                            toastr.success(response.message, "Müraciətiniz uğurla tamamlandı!");
+                        }
+                        else {
+                            toastr.error(response.message, "Xəta!");
+                        }
+                    },
+                    error: function (response) {
+                        console.log(response);
+                        toastr.error("Təyin edilməyən xəta baş verib, bir az sonra yenidən yoxlayın!", "Xəta!");
+                    }
 
-    });
-</script>*@
+                });
+            });
+
+        });
+    </script>
 
 }
