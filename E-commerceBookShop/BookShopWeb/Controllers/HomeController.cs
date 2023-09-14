@@ -1,8 +1,10 @@
-﻿using BookShopEntity.Entity;
+﻿using BookShopData.DAL;
+using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShopWeb.Controllers
 {
@@ -81,21 +83,22 @@ namespace BookShopWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBasket(HomeVM homeVM)
         {
+            if (homeVM.BasketContactVM.Name is not null)
+            {
                 await basketContactService.AddBasketAsync(homeVM);
+                return Json(new
+                {
+                    error = false,
+                    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                });
 
-                //return Json(new
-                //{
-                //    error = false,
-                //    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
-                //});
-            
+            }
 
-            //return Json(new
-            //{
-            //    error = true,
-            //    message = "Bir az sonra yenidən yoxlayın!"
-            //});
-            return RedirectToAction("Index");
+            return Json(new
+            {
+                error = true,
+                message = "Bir az sonra yenidən yoxlayın!"
+            });
         }
 
 
