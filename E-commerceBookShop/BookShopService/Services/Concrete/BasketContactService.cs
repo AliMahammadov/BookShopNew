@@ -1,13 +1,8 @@
-﻿using BookShopData.UnitOfWorks;
+﻿using BookShopData.DAL;
+using BookShopData.UnitOfWorks;
 using BookShopEntity.Entities;
 using BookShopService.Services.Abstraction;
-using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookShopService.Services.Concrete
 {
@@ -22,6 +17,7 @@ namespace BookShopService.Services.Concrete
 
         public async Task AddBasketAsync(HomeVM homeVM)
         {
+
             if (homeVM is not null)
             {
                 BasketContact contact = new BasketContact()
@@ -41,14 +37,15 @@ namespace BookShopService.Services.Concrete
                 await unitOfWork.GetRepository<BasketContact>().AddAsync(contact);
                 await unitOfWork.SaveChangeAsync();
 
+
             }
-           
-             
+
+
         }
 
         public async Task<ICollection<BasketContact>> GetAllContactsAsync()
         {
-           return await unitOfWork.GetRepository<BasketContact>().GetAllAsync();
+            return await unitOfWork.GetRepository<BasketContact>().GetAllAsync();
         }
     }
 }
