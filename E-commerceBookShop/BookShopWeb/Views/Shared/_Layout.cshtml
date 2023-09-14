@@ -64,7 +64,7 @@
                                         </li>
                                         
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">CONTACT</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">ƏLAQƏ</a>
                                         </li>
                                         <li class="nav-item">
                                             @if (User.Identity.IsAuthenticated)
@@ -120,6 +120,10 @@
                                             <a class="nav-link" asp-controller="Home" asp-action="Index"> HOME</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">BİZƏ YAZIN</a>
+                                            <p>Şikayət və təkliflərinizi bizə bildirə bilərsiz. Biz sizin xidmətinizdəyik.</p>
+                                        </li>
+                                @*         <li class="nav-item">
                                             <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages1">
                                                 BOOKS <i class="fas fa-chevron-down"></i>
                                             </a>
@@ -158,8 +162,8 @@
                                                     <li class="nav-item"><a class="nav-link" href="~/book-shop/product-listing.html">Personal Finance</a></li>
                                                 </ul>
                                             </div>
-                                        </li>
-                                        <li class="nav-item">
+                                        </li> *@
+                                     @*    <li class="nav-item">
                                             <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages3">
                                                 E-BOOKS <i class="fas fa-chevron-down"></i>
                                             </a>
@@ -201,19 +205,18 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
-                                        </li>
+                                        </li> *@
+                                     
                                     </ul>
                                 </nav>
                                 <div class="side-footer w-100">
                                     <ul class="social-icons-simple white top40">
-                                        <li><a class="facebook-bg-hvr" href="javascript:void(0)"><i class="fab fa-facebook-f"></i> </a> </li>
+                                        <li><a class="facebook-bg-hvr" ><i class="fab fa-facebook-f"></i> </a> </li>
+                                        <li><a class="facebook-bg-hvr" ><i class="fab fa-facebook-f"></i> </a> </li>
                                         <li><a class="twitter-bg-hvr" href="javascript:void(0)"><i class="fab fa-twitter"></i> </a> </li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0)"><i class="fab fa-instagram"></i> </a> </li>
                                     </ul>
-                                    <p class="whitecolor">&copy; <span id="year"></span> Product Shop. Made With Love by ThemesIndustry</p>
+                                    <p class="whitecolor"> <span id="year"></span> &copy; Bu səyfə 2023-cü ildə Program Təminatçıları, Əli və Ruslan  tərəfindən sevgi ilə hazırlanmışdır </p>
                                 </div>
                             </div>
                         </div>
@@ -223,16 +226,16 @@
                     <div class="nav-utility">
                         <div class="manage-icons d-inline-block">
                             <ul class="d-flex justify-content-center align-items-center">
-                                <li class="d-inline-block">
+                           @*      <li class="d-inline-block">
                                     <a id="add_search_box">
                                         <i class="lni lni-search search-sidebar-hover"></i>
                                     </a>
-                                </li>
-                                <li class="d-inline-block mini-menu-card">
+                                </li> *@
+                                @* <li class="d-inline-block mini-menu-card">
                                     <a class="nav-link" id="add_cart_box" href="javascript:void(0)">
                                         <i class="lni lni-shopping-basket"></i>
                                     </a>
-                                </li>
+                                </li> *@
                                 <a href="javascript:void(0)" class="d-inline-block sidemenu_btn d-block" id="sidemenu_toggle">
                                     <i class="lni lni-menu"></i>
                                 </a>
@@ -250,10 +253,10 @@
         <div class="container">
             <div class="row footer-container">
                 <div class="col-sm-12 col-lg-4 f-sec1  text-center text-lg-left">
-                    <h4 class="high-lighted-heading">About Us</h4>
-                    <p>We take our mission of increasing our global access to quality education seriously. </p>
-                    <a href="#">Read more</a>
-                    <h4>Social Network</h4>
+                    <h4 class="high-lighted-heading">Bizim haqqımızda</h4>
+                    <p>Keyfiyyətli təhsilə qlobal çıxışımızı artırmaq missiyamıza ciddi yanaşırıq.</p>
+                    <a href="#">Daha çox oxu</a>
+                    <h4>Sosial şəbəkə</h4>
                     <div class="s-icons">
                         <ul class="social-icons-simple">
                             <li><a href="javascript:void(0)" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -265,27 +268,22 @@
                 <div class="col-sm-12 col-lg-5 f-sec2 ">
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <h4 class="text-center text-md-left">Information</h4>
+                            <h4 class="text-center text-md-left">Məlumat</h4>
                             <ul class="text-center text-md-left">
-                                <li><a href="javascript:void(0)">About Us</a></li>
-                                <li><a href="javascript:void(0)">Delivery Information</a></li>
-                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                                <li><a href="javascript:void(0)">Terms & Condition</a></li>
-                                <li><a href="javascript:void(0)">FAQ</a></li>
-                                <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                                <li><a href="product-listing.html">Products</a></li>
+                                <li><a href="javfascript:void(0)">Bizim haqqımızda</a></li>
+                                <li><a href="jafvascript:void(0)">Çatdırılma məlumatı</a></li>
+                                <li><a href="javfascript:void(0)">Gizlilik Siyasətiy</a></li>
+                                <li><a href="javfascript:void(0)">Qaydalar və Şərt</a></li>
+                                <li><a href="jafvascript:void(0)">Tez-tez verilən suallar</a></li>
+                                <li><a asp-controller="Home" asp-action="Contact">Bizimlə əlaqə saxlayın</a></li>
+                                <li><a>Məhsullar</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-md-6">
-                            <h4 class="text-center text-md-left">Account Info</h4>
+                            <h4 class="text-center text-md-left">Hesab Məlumatı</h4>
                             <ul class="text-center text-md-left">
-                                <li><a href="javascript:void(0)">My Account</a></li>
-                                <li><a href="javascript:void(0)">Login & Register</a></li>
-                                <li><a href="javascript:void(0)">Order History</a></li>
-                                <li><a href="javascript:void(0)">Shipping Info</a></li>
-                                <li><a href="#">Refund Policy</a></li>
-                                <li><a href="javascript:void(0)">Responsive Website</a></li>
-                                <li><a href="javascript:void(0)">Subscription</a></li>
+                                <li><a href="javascript:void(0)">Mənim Hesabım</a></li>
+                                <li><a asp-controller="Account" asp-action="Login">Giriş & Qeydiyyatdanr</a></li>
                             </ul>
                         </div>
                     </div>
@@ -305,7 +303,7 @@
             </div>
             <div class="row">
                 <div class="col-12 footer_notes">
-                    <p class="whitecolor text-center w-100 wow fadeInDown">&copy; 2019 MegaOne. Made With Love by <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a></p>
+                    <p class="whitecolor text-center w-100 wow fadeInDown">&copy;Bu səyfə 2023-cü ildə Program Təminatçıları, Əli və Ruslan  tərəfindən sevgi ilə hazırlanmışdır <a class="web-link" target="_blank"></a></p>
                 </div>
             </div>
         </div>
