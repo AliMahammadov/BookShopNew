@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Elmlər Akademiyası metrosuna çatdırılma pulsuzdur." xml:space="preserve">
+    <value>Доставка до метро Академия наук бесплатная.</value>
+  </data>
+  <data name="Giriş" xml:space="preserve">
+    <value>Введение</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>дом</value>
+  </data>
+  <data name="Qeydiyyat" xml:space="preserve">
+    <value>Постановка на учет</value>
+  </data>
+  <data name="Çıxış" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="Əlaqə" xml:space="preserve">
+    <value>Контакт</value>
   </data>
 </root>

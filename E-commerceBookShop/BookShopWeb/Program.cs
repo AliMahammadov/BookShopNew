@@ -1,6 +1,8 @@
 using BookShopData.Extensions;
 using BookShopService.Extensions;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
 
 public class Program
 {
@@ -15,9 +17,10 @@ public class Program
         {
             opt.ResourcesPath = "Resources";
         });
-   
+
 
         var app = builder.Build();
+        app.UseRequestLocalization();
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
