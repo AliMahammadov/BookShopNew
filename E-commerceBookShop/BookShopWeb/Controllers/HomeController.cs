@@ -1,10 +1,8 @@
-﻿using BookShopData.DAL;
-using BookShopEntity.Entity;
+﻿using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookShopWeb.Controllers
 {
@@ -74,6 +72,7 @@ namespace BookShopWeb.Controllers
                 {
                     Book = book,
                     Books = await bookService.GetBookForAsCategory(id),
+                    BasketContacts = await basketContactService.GetAllContactsAsync()
                 };
 
                 return View(homeVM);
@@ -89,7 +88,8 @@ namespace BookShopWeb.Controllers
                 return Json(new
                 {
                     error = false,
-                    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                    message = "Sizin müraciət qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!",
+                    RedirectToAction = "Index"
                 });
 
             }
