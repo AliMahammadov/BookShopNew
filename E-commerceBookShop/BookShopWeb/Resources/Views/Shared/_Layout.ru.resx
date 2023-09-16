@@ -126,6 +126,9 @@
   <data name="Home" xml:space="preserve">
     <value>дом</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
   <data name="Qeydiyyat" xml:space="preserve">
     <value>Постановка на учет</value>
   </data>

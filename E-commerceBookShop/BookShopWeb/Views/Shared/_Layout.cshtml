@@ -104,11 +104,10 @@
                                                 </div>
                                             </li>
                                             }
-                                        </li>
 
                                         <li class="nav-item dropdown position-relative">
 
-                                            <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Language</a>
+                                            <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@localizer["Language"]</a>
                                             <div class="dropdown-menu">
                                                 <ul>
                                                     <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=az" class="dropdown-item">Az</a></li>
@@ -118,7 +117,7 @@
                                                 </ul>
                                             </div>
                                         </li>
-
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -133,11 +132,24 @@
                                     <ul class="navbar-nav">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Index"> HOME</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index"> @localizer["Home"]</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">BİZƏ YAZIN</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">@localizer["Əlaqə"]</a>
                                             <p>Şikayət və təkliflərinizi bizə bildirə bilərsiz. Biz sizin xidmətinizdəyik.</p>
+                                        </li>
+
+                                        <li class="nav-item dropdown position-relative">
+
+                                            <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@localizer["Language"]</a>
+                                            <div class="dropdown-menu">
+                                                <ul>
+                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=az" class="dropdown-item">Az</a></li>
+                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=tr" class="dropdown-item">Tr</a></li>
+                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=en" class="dropdown-item">En</a></li>
+                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=ru" class="dropdown-item">Ru</a></li>
+                                                </ul>
+                                            </div>
                                         </li>
 
                                     </ul>
