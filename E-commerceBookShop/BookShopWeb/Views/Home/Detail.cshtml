@@ -26,7 +26,7 @@
                     </nav>
                     <div class="pro-detail-sec row">
                         <div class="col-12">
-                            <h4 class="pro-heading text-center text-lg-left">Books  Collections</h4>
+                            <h4 class="pro-heading text-center text-lg-left">@Model.Book.Name</h4>
                             <p class="pro-text text-center text-lg-left">@Model.Book.ShortDescription</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <div class="wrapper">
                                 <div class="Gallery swiper-container img-magnifier-container" id="gallery">
                                     <div class="swiper-wrapper myimgs">
-                                        <div class="swiper-slide"> <a href="~/manage/img/book/@Model.Book.ImageUrl" data-fancybox="1" title="Zoom In"><img class="myimage" src="~/manage/img/book/@Model.Book.ImageUrl" alt="gallery" /></a></div>
+                                        <div class="swiper-slide"> <a href="~/manage/img/book/@Model.Book.ImageUrl" data-fancybox="1" title="Zoom In"><img  class="myimage" src="~/manage/img/book/@Model.Book.ImageUrl" alt="gallery" /></a></div>
                                     </div>
                                 </div>
 
@@ -45,8 +45,9 @@
 
                         <div class="col-12 col-lg-6 text-center text-lg-left">
                             <div class="product-single-price">
-                                <h4><span class="real-price">@Model.Book.Price Manat</span> <span><del></del></span></h4>
-                                <p class="pro-description">@Model.Book.ShortDescription</p>
+                                <h4><span class="real-price">@Model.Book.Price AZN</span> <span><del></del></span></h4>
+                         
+                
                             </div>
 
                             <div class="product-checklist">
@@ -70,14 +71,35 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><p class="d-inline">SKU: <span>@Model.Book.SKU</span></p></li>
+                                   
                                         <li class="breadcrumb-item"><span class="d-inline">Kateqoriya: <a href="javascript:void(0)">@Model.Book.Category.Name</a></span></li>
                                     </ol>
+                               
                                 </nav>
+                            
                             </div>
-
+                         
                             <div class="share-product-details">
                                 <ul class="share-product-icons">
-                                    <li><p>Share Link:</p></li>
+                                    <li><p>Nəşriyyat:</p></li>
+                                    <li>@Model.Book.Publisher</li>
+                                   
+                                </ul>
+                               <br />
+                                <ul class="share-product-icons">
+                                    <li><p>Yazıçı:</p></li>
+                                    <li>@Model.Book.Author</li>
+
+                                </ul>
+                                <br />
+                                <ul class="share-product-icons">
+                                    <li><p>Səhvə sayı:</p></li>
+                                    <li>@Model.Book.PageCount</li>
+
+                                </ul>
+                                <br />
+                                <ul class="share-product-icons">
+                                    <li><p>Paylaş:</p></li>
                                     <li><a href="javascript:void(0)" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
                                     <li><a href="javascript:void(0)" class="twitter-bg-hvr"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
                                     <li><a href="javascript:void(0)" class="linkedin-bg-hvr"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
@@ -92,7 +114,7 @@
 
                                 <ul class="col-12 nav nav-tabs" id="myTab" role="tablist">
                                     <li class="col-6 nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Long Description</a>
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ətraflı məlumat</a>
                                     </li>
                                     @*     <li class="col-6 nav-item">
                                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Customer Reviews  (2)</a>
@@ -237,7 +259,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-4">
-                    <h1>Related Books</h1>
+                    <h1>Eyni Kateqoriyadan olan digər məhsullar</h1>
                 </div>
 
                 <div class="col-12">
