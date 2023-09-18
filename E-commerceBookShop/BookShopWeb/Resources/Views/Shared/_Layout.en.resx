@@ -126,6 +126,9 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="Qeydiyyat" xml:space="preserve">
     <value>Register</value>
   </data>
