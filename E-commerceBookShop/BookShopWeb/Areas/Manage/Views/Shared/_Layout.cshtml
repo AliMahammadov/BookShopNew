@@ -29,6 +29,8 @@
     <!-- Template Main CSS File -->
     <link href="~/manage/css/style.css" rel="stylesheet">
 
+    @await RenderSectionAsync("Css", required: false)
+
     <!-- =======================================================
     * Template Name: NiceAdmin
     * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -528,7 +530,7 @@
     <!-- Template Main JS File -->
 
     <script src="~/manage/js/main.js"></script>
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

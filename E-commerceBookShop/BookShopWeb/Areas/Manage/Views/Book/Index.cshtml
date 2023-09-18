@@ -1,8 +1,67 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
-@model ICollection<Book>
+@model IEnumerable<Book>
 <h1>Index</h1>
+
+@*<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Data Tables</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Books</li>
+                <li class="breadcrumb-item active">see</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Books</h5>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Start Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var books in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@books.Id</th>
+                                        <td>@books.Name</td>
+                                        <td>Designer</td>
+                                        <td>28</td>
+                                        <td>2016-05-25</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>*@
+
+<!-- End #main -->
+<!-- ======= Footer ======= -->
 
 <main id="main" class="main">
 
@@ -24,7 +83,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Books</h5>
                         <!-- Active Table -->
-                        <table class="table table-borderless">
+                        <table id="tbl1" class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -51,23 +110,6 @@
                             </tbody>
                         </table>
                         <!-- End Tables without borders -->
-                        @*
-                        <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                        @if (Model.CurrentPage > 1)
-                        {
-                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Previous</a></li>
-                        }
-                        @for (int i = 1; i <= Model.MaxPageCount; i++)
-                        {
-                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
-                        }
-                        @if (Model.CurrentPage < Model.MaxPageCount)
-                        {
-                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Next</a></li>
-                        }
-                        </ul>
-                        </nav>*@
 
                     </div>
                 </div>
@@ -79,5 +121,16 @@
         </div>
     </section>
 
-</main><!-- End #main -->
-<!-- ======= Footer ======= -->
+</main>
+@section Css{
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+}
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $('#tbl1').Datatable();
+    </script>
+}
