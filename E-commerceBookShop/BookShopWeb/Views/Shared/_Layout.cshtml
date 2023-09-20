@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization;
-@inject IViewLocalizer localizer
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Meta Tags For Seo + Page Optimization -->
@@ -62,11 +60,11 @@
                                 <div class="collapse navbar-collapse">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Index">@localizer["Home"]</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index">Əsas səhifə</a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">@localizer["Əlaqə"]</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">Əlaqə</a>
                                         </li>
                                         <li class="nav-item">
                                             @if (User.Identity.IsAuthenticated)
@@ -84,7 +82,7 @@
                                                     <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-user-alt"></i>&nbsp;&nbsp;@User.Identity.Name</a>
                                                     <div class="dropdown-menu">
                                                         <ul>
-                                                            <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Signout" asp-controller="Account" class="dropdown-item">@localizer["Çıxış"]</a></li>
+                                                            <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Signout" asp-controller="Account" class="dropdown-item">Çıxış</a></li>
                                                         </ul>
                                                     </div>
                                                 </li>
@@ -98,25 +96,13 @@
                                                 <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-sign-in-alt"></i></a>
                                                 <div class="dropdown-menu">
                                                     <ul>
-                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="LogIn" asp-controller="Account" class="dropdown-item">@localizer["Giriş"]</a></li>
-                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Register" asp-controller="Account" class="dropdown-item">@localizer["Qeydiyyat"]</a></li>
+                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="LogIn" asp-controller="Account" class="dropdown-item">Giriş</a></li>
+                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Register" asp-controller="Account" class="dropdown-item">Qeydiyyat</a></li>
                                                     </ul>
                                                 </div>
                                             </li>
                                             }
 
-                                        <li class="nav-item dropdown position-relative">
-
-                                            <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@localizer["Language"]</a>
-                                            <div class="dropdown-menu">
-                                                <ul>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=az" class="dropdown-item">Az</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=tr" class="dropdown-item">Tr</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=en" class="dropdown-item">En</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=ru" class="dropdown-item">Ru</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
                                         </li>
 
                                     </ul>
@@ -132,24 +118,11 @@
                                     <ul class="navbar-nav">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Index"> @localizer["Home"]</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index">Əsas səhifə</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">@localizer["Əlaqə"]</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="Contact">Əlaqə</a>
                                             <p>Şikayət və təkliflərinizi bizə bildirə bilərsiz. Biz sizin xidmətinizdəyik.</p>
-                                        </li>
-
-                                        <li class="nav-item dropdown position-relative">
-
-                                            <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@localizer["Language"]</a>
-                                            <div class="dropdown-menu">
-                                                <ul>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=az" class="dropdown-item">Az</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=tr" class="dropdown-item">Tr</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=en" class="dropdown-item">En</a></li>
-                                                    <li><i class="lni-angle-double-right right-arrow"></i><a href="?culture=ru" class="dropdown-item">Ru</a></li>
-                                                </ul>
-                                            </div>
                                         </li>
 
                                     </ul>
