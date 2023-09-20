@@ -1,12 +1,12 @@
 ﻿using BookShopData.DAL;
 using BookShopData.UnitOfWorks;
-using BookShopEntity.Entities;
 using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace BookShopService.Services.Concrete
 {
@@ -65,6 +65,11 @@ namespace BookShopService.Services.Concrete
         public async Task<ICollection<Book>> GetAllBooksAsync()
         {
             return await unitOfWork.GetRepository<Book>().GetAllAsync();
+        }
+
+        public async Task<IEnumerable<Book>> GetAllBooksWithPagination(int page)
+        {
+            return await appDbContext.Books.ToList().ToPagedListAsync(page, 3);
         }
 
         public async Task<Book> GetBookByIdAsync(int? id)
