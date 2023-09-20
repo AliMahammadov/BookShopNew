@@ -23,21 +23,17 @@
 
                 <div class="card container">
                     <div class="card-body">
-                        <h5 class="card-title">Contacts</h5>
+                        <h5 class="card-title">Orders</h5>
                         <!-- Active Table -->
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    @*<th scope="col">Image</th>*@
-                                    <th scope="col">Adı</th>
-                                    <th scope="col">Soy adı</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Surname</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Təklif və iradlar</th>
                                     <th scope="col">BookId</th>
-                                    <th scope="col">Kitab adı</th>
-                                    <th scope="col">Yazıçı</th>
                                     <th scope="col">Qiymət</th>
                                     <th scope="col">Sifariş tarixi</th>
                                     <th scope="col"></th>
@@ -45,23 +41,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var contacts in Model ?? new List<BasketContact>())
+                                @foreach (var orders in Model ?? new List<BasketContact>())
                                 {
                                     <tr>
-                                        <th scope="row">@contacts.Id</th>
-                                        @*<th scope="row"><img style="width:70px;" src="~/manage/img/book/@contacts.ImageUrl" /></th>*@
-                                        <td>@contacts.Name</td>
-                                        <td>@contacts.Surname</td>
-                                        <td>@contacts.Phone</td>
-                                        <td>@contacts.Email</td>
-                                        <td>@contacts.Message</td>
-                                        <td>@contacts.BookId</td>
-                                        <td>@contacts.BookName</td>
-                                        <td>@contacts.Author</td>
-                                        <td>@contacts.BookPrice Manat</td>
-                                        <td>@contacts.CreateAt</td>
-                                      @*   <td><a asp-area="Manage" asp-controller="" asp-action="Delete" asp-route-Id="@contacts.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
-                                        <td><a asp-area="Manage" asp-controller="" asp-action="Edit" asp-route-Id="@contacts.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td> *@
+                                        <th scope="row">@orders.Id</th>
+                                        <td>@orders.Name</td>
+                                        <td>@orders.Surname</td>
+                                        <td>@orders.Phone</td>
+                                        <td>@orders.Email</td>
+                                        <td>@orders.BookId</td>
+                                        <td>@orders.BookPrice AZN</td>
+                                        <td>@orders.CreateAt</td>
+                                         <td><a asp-area="Manage" asp-controller="" asp-action="Delete" asp-route-Id="@orders.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
+                                        <td><a asp-area="Manage" asp-controller="" asp-action="View" asp-route-Id="@orders.Id" class="btn btn-warning" title="View"><i class="bi bi-box-arrow-right"></i></a></td>
                                     </tr>
                                 }
                             </tbody>
