@@ -1,5 +1,4 @@
-﻿@using BookShopViewModel.Entites.Home;
-@using System.Security.Claims;
+﻿@using System.Security.Claims;
 @{
     ViewData["Title"] = "Detail";
 }
@@ -19,10 +18,10 @@
                 <div class="product-body">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb text-center text-lg-left">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Categories</a></li>
-                            <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0)">Books</a></li>
-                            <li class="breadcrumb-item"><a class="active" href="javascript:void(0)">The Road</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Əsas səhifə</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Kateqoriyalar</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0)">Kitablar</a></li>
+                            <li class="breadcrumb-item"><a class="active" href="javascript:void(0)">Yol</a></li>
                         </ol>
                     </nav>
                     <div class="pro-detail-sec row">
@@ -71,9 +70,9 @@
                             <div class="product-tags-list">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><p class="d-inline">SKU: <span>@Model.Book.SKU</span></p></li>
+                                        <li class="breadcrumb-item"><p class="d-inline">Məhsulun kodu: <span>@Model.Book.SKU</span></p></li>
 
-                                        <li class="breadcrumb-item"><span class="d-inline">Kateqoriya: <a href="javascript:void(0)">@Model.Book.Category.Name</a></span></li>
+                                        <li class="breadcrumb-item"><span class="d-inline">Janr: <a href="javascript:void(0)">@Model.Book.Category.Name</a></span></li>
                                     </ol>
 
                                 </nav>

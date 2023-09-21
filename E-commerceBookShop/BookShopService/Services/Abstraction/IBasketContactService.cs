@@ -8,5 +8,6 @@ namespace BookShopService.Services.Abstraction
     {
         Task AddBasketAsync(HomeVM homeVM);
         Task<ICollection<BasketContact>> GetAllContactsAsync();
+        Task<BasketContact> GetBasketContactViewAsync(int? id);
     }
 }

@@ -38,6 +38,16 @@ namespace BookShopService.Services.Concrete
             }
         }
 
+        public async Task DeleteReviewAsync(int? id)
+        {
+            var review = await unitOfWork.GetRepository<Review>().GetByIdAsync(id);
+            if (review is not null)
+            {
+                await unitOfWork.GetRepository<Review>().DeleteAsync(review);
+                await unitOfWork.SaveChangeAsync();
+            }
+        }
+
         public async Task<ICollection<Review>> GetAllReviewIncludeBookIdAsync(int? id)
         {
             var book = await unitOfWork.GetRepository<Book>().GetByIdAsync(id);
@@ -49,6 +59,11 @@ namespace BookShopService.Services.Concrete
         public async Task<ICollection<Review>> GetAllReviewsAsync()
         {
             return await unitOfWork.GetRepository<Review>().GetAllAsync();
+        }
+
+        public async Task<Review> GetReviewById(int? id)
+        {
+            return await unitOfWork.GetRepository<Review>().GetByIdAsync(id);
         }
     }
 }

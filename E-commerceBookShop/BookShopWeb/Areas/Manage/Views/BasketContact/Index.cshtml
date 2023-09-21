@@ -11,7 +11,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li class="breadcrumb-item">Contact</li>
+                <li class="breadcrumb-item">Order</li>
                 <li class="breadcrumb-item active">See</li>
             </ol>
         </nav>
@@ -52,8 +52,8 @@
                                         <td>@orders.BookId</td>
                                         <td>@orders.BookPrice AZN</td>
                                         <td>@orders.CreateAt</td>
-                                         <td><a asp-area="Manage" asp-controller="" asp-action="Delete" asp-route-Id="@orders.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
-                                        <td><a asp-area="Manage" asp-controller="" asp-action="View" asp-route-Id="@orders.Id" class="btn btn-warning" title="View"><i class="bi bi-box-arrow-right"></i></a></td>
+                                         
+                                        <td><a asp-area="Manage" asp-controller="BasketContact" asp-action="View" asp-route-Id="@orders.Id" class="btn btn-warning" title="View"><i class="bi bi-box-arrow-right"></i></a></td>
                                     </tr>
                                 }
                             </tbody>
