@@ -1,4 +1,5 @@
 ﻿@using BookShopViewModel.Entites.Home;
+@using System.Security.Claims;
 @{
     ViewData["Title"] = "Detail";
 }
@@ -36,7 +37,7 @@
                             <div class="wrapper">
                                 <div class="Gallery swiper-container img-magnifier-container" id="gallery">
                                     <div class="swiper-wrapper myimgs">
-                                        <div class="swiper-slide"> <a href="~/manage/img/book/@Model.Book.ImageUrl" data-fancybox="1" title="Zoom In"><img  class="myimage" src="~/manage/img/book/@Model.Book.ImageUrl" alt="gallery" /></a></div>
+                                        <div class="swiper-slide"> <a href="~/manage/img/book/@Model.Book.ImageUrl" data-fancybox="1" title="Zoom In"><img class="myimage" src="~/manage/img/book/@Model.Book.ImageUrl" alt="gallery" /></a></div>
                                     </div>
                                 </div>
 
@@ -46,8 +47,8 @@
                         <div class="col-12 col-lg-6 text-center text-lg-left">
                             <div class="product-single-price">
                                 <h4><span class="real-price">@Model.Book.Price AZN</span> <span><del></del></span></h4>
-                         
-                
+
+
                             </div>
 
                             <div class="product-checklist">
@@ -60,8 +61,8 @@
 
                             <div class="row product-quantity input_plus_mins no-gutters">
                                 <div class="col-12 col-lg-9">
-                                    <a asp-controller="Home" asp-action="AddBasket"  asp-route-Id="@Model.Book.Id" class="btn green-color-yellow-gradient-btn">Sifariş et</a>
-                                 @*    <a href="https://wa.me/+994556280899" class="btn green-color-yellow-gradient-btn">ADD TO CART</a> *@
+                                    <a asp-controller="Home" asp-action="AddBasket" asp-route-Id="@Model.Book.Id" class="btn green-color-yellow-gradient-btn">Sifariş et</a>
+                                    @*    <a href="https://wa.me/+994556280899" class="btn green-color-yellow-gradient-btn">ADD TO CART</a> *@
                                 </div>
                             </div>
 
@@ -71,21 +72,21 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><p class="d-inline">SKU: <span>@Model.Book.SKU</span></p></li>
-                                   
+
                                         <li class="breadcrumb-item"><span class="d-inline">Kateqoriya: <a href="javascript:void(0)">@Model.Book.Category.Name</a></span></li>
                                     </ol>
-                               
+
                                 </nav>
-                            
+
                             </div>
-                         
+
                             <div class="share-product-details">
                                 <ul class="share-product-icons">
                                     <li><p>Nəşriyyat:</p></li>
                                     <li>@Model.Book.Publisher</li>
-                                   
+
                                 </ul>
-                               <br />
+                                <br />
                                 <ul class="share-product-icons">
                                     <li><p>Yazıçı:</p></li>
                                     <li>@Model.Book.Author</li>
@@ -116,9 +117,9 @@
                                     <li class="col-6 nav-item">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ətraflı məlumat</a>
                                     </li>
-                                    @*     <li class="col-6 nav-item">
-                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Customer Reviews  (2)</a>
-                                    </li> *@
+                                    <li class="col-6 nav-item">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Rəylər  (@Model.Reviews.Count)</a>
+                                    </li>
                                 </ul>
                                 <div class="col-12 tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -128,116 +129,153 @@
 
                                     <div class="tab-pane fade reviews" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-                                        <div class="media">
-                                            <div class="row no-gutter">
-                                                <div class="col-12 col-lg-2 p-0">
 
-                                                    <div class="row no-gutters">
-                                                        <div class="col-12 d-flex  justify-content-center">
-                                                            <img src="~/book-shop/img/user.jpg" alt="Generic placeholder image">
-                                                        </div>
-                                                        <div class="col-12 d-flex mt-2 justify-content-center">
-                                                            <ul class="user-rating">
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star"></i></a></li>
-                                                            </ul>
+                                        @foreach (var reviews in Model.Reviews)
+                                        {
+                                            var date = DateTime.Now;
+                                            var forUserRemainderHour = date.Hour - reviews.CreateAt.Hour;
+                                            var forUserRemainderDay = date.Day - reviews.CreateAt.Day;
+
+                                            if (forUserRemainderHour == 24)
+                                                forUserRemainderHour = 0;
+
+                                            if (forUserRemainderDay == 31)
+                                                forUserRemainderDay = 0;
+
+                                            <div class="row mb-5">
+                                                <div class="col">
+                                                    <div class="d-flex flex-start">
+
+                                                        <div class="flex-grow-1 flex-shrink-1">
+
+                                                            <div class="d-flex flex-start mt-4">
+                                                                <a class="me-3">
+                                                                    <img class="rounded-circle shadow-1-strong"
+                                                                         src="https://th.bing.com/th/id/OIP.OTHx6upJeSBgJT-smbgXUwHaHa?pid=ImgDet&rs=1" alt="avatar"
+                                                                         width="65" height="65" />
+                                                                </a>
+                                                                <div class="flex-grow-1 flex-shrink-1 ml-4">
+                                                                    <div>
+                                                                        <div class="d-flex justify-content-between align-items-center">
+                                                                            <p class="mb-1">
+                                                                                @reviews.Name <span class="small"> - @forUserRemainderDay gün @forUserRemainderHour saat əvvəl</span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <p class="small mb-0">
+                                                                            @reviews.Comment
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
 
                                                 </div>
-
-                                                <div class="col-12 col-lg-10 p-0">
-                                                    <div class="media-body">
-                                                        <span class="text-center text-lg-left d-block">27 Aug 2017</span>
-                                                        <h5 class="mb-2 text-center text-lg-left">Media heading</h5>
-                                                        <p class="text-center text-lg-left">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
-                                                    </div>
-                                                </div>
-
                                             </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="row no-gutter">
-                                                <div class="col-12 col-lg-2 p-0">
+                                        }
 
-                                                    <div class="row no-gutters">
-                                                        <div class="col-12 d-flex  justify-content-center">
-                                                            <img src="~/book-shop/img/user2.jpg" alt="Generic placeholder image">
-                                                        </div>
-                                                        <div class="col-12 d-flex mt-2 justify-content-center">
-                                                            <ul class="user-rating">
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
 
-                                                </div>
-
-                                                <div class="col-12 col-lg-10 p-0">
-                                                    <div class="media-body ">
-                                                        <span class="text-center text-lg-left d-block">27 Aug 2017</span>
-                                                        <h5 class="mb-2 text-center text-lg-left">Media heading</h5>
-                                                        <p class="text-center text-lg-left">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
-                                                    </div>
-                                                </div>
-
+                                        <div class="row pl-2 pr-2">
+                                            <div class="col-12 d-flex mb-4 mt-3">
+                                                <h5 class="text-nowrap">Rəy əlavə edin</h5>
+                                                <hr class="w-100 ml-5" />
                                             </div>
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                string userName = User.FindFirstValue(ClaimTypes.Name);
+                                                string userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+                                                <div class="col-12">
+                                                    <form asp-controller="Review" asp-action="Comment" method="post" class="getin_form border-form" id="register">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="form-group bottom35">
+                                                                    <input asp-for="@Model.Review.Name" class="form-control" value="@userName" readonly required id="registerName">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="form-group bottom35">
+                                                                    <input asp-for="@Model.Review.Email" class="form-control" value="@userEmail" readonly required id="registerEmail">
+                                                                </div>
+                                                            </div>
+                                                            @*<div class="col-12 col-lg-2 text-center text-lg-left">
+                                                        <h5 class="text-nowrap">Your Rating</h5>
+                                                        </div>
+                                                        <div class="col-12 col-lg-10 text-center text-lg-left">
+                                                        <ul class="user-rating">
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star"></i></a></li>
+                                                        </ul>
+                                                        </div>*@
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    @*<label for="comment">Your Rating:</label>*@
+                                                                    <textarea asp-for="@Model.Review.Comment" class="form-control textareaclass" rows="5" id="comment" required placeholder="Sizin rəyiniz"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 mt-3">
+                                                                <div class="form-group d-flex justify-content-center d-lg-block">
+                                                                    <button asp-controller="Review" asp-action="Comment" asp-route-Id="@Model.Book.Id" class="text-center btn green-color-yellow-gradient-btn">Göndər</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-12">
+                                                    <form class="getin_form border-form" id="register">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="form-group bottom35">
+                                                                    <input class="form-control" placeholder="Ad*" readonly required="" id="registerName">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="form-group bottom35">
+                                                                    <input class="form-control" placeholder="Email*" readonly required="" id="registerEmail">
+                                                                </div>
+                                                            </div>
+                                                            @*<div class="col-12 col-lg-2 text-center text-lg-left">
+                                                        <h5 class="text-nowrap">Your Rating</h5>
+                                                        </div>
+                                                        <div class="col-12 col-lg-10 text-center text-lg-left">
+                                                        <ul class="user-rating">
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
+                                                        <li><a href="#"><i class="lni-star"></i></a></li>
+                                                        </ul>
+                                                        </div>*@
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <!--                                                                            <label for="comment">Your Rating:</label>-->
+                                                                    <textarea class="form-control textareaclass" rows="5" id="comment" readonly placeholder="Sizin rəyiniz"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 mt-3">
+                                                                <div class="form-group d-flex justify-content-center d-lg-block">
+                                                                    <a asp-controller="Account" asp-action="Login" class="text-center btn btn-danger">İstifadəçi kimi daxil olun</a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            }
+
                                         </div>
 
-                                        @*         <div class="row pl-2 pr-2">
-                                        <div class="col-12 d-flex mb-4 mt-3">
-                                        <h5 class="text-nowrap">Add Review</h5>
-                                        <hr class="w-100 ml-5" />
-                                        </div>
-                                        <div class="col-12">
-                                        <form class="getin_form border-form" id="register">
-                                        <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                        <div class="form-group bottom35">
-                                        <input type="text" class="form-control" placeholder="Name*" required="" id="registerName">
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                        <div class="form-group bottom35">
-                                        <input type="email" class="form-control" placeholder="Email*" required="" id="registerEmail">
-                                        </div>
-                                        </div>
-                                        <div class="col-12 col-lg-2 text-center text-lg-left">
-                                        <h5 class="text-nowrap">Your Rating</h5>
-                                        </div>
-                                        <div class="col-12 col-lg-10 text-center text-lg-left">
-                                        <ul class="user-rating">
-                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                        <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                        <li><a href="#"><i class="lni-star"></i></a></li>
-                                        </ul>
-                                        </div>
-                                        <div class="col-12">
-                                        <div class="form-group">
-                                        <!--                                                                            <label for="comment">Your Rating:</label>-->
-                                        <textarea class="form-control textareaclass" rows="5" id="comment" placeholder="Your Review"></textarea>
-                                        </div>
-                                        </div>
-
-                                        <div class="col-12 mt-3">
-                                        <div class="form-group d-flex justify-content-center d-lg-block">
-                                        <button class="text-center btn green-color-yellow-gradient-btn">Add Review</button>
-                                        </div>
-                                        </div>
-
-                                        </div>
-                                        </form>
-                                        </div>
-                                        </div> *@
 
                                     </div>
                                 </div>
@@ -269,7 +307,7 @@
                         {
 
                             <div class="lastest_arrival_items item">
-                           
+
                                 <div class="card">
                                     <span class="product-type">NEW</span>
 

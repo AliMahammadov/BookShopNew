@@ -8,6 +8,7 @@ namespace BookShopViewModel.Entites.Home
     {
         public Book Book { get; set; }
         public ICollection<Book> Books { get; set; }
+        public Review Review { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Contact> Contacts { get; set; }
         public ICollection<Category> Categories{ get; set; }
