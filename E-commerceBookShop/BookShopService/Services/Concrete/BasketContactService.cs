@@ -36,16 +36,20 @@ namespace BookShopService.Services.Concrete
                 };
                 await unitOfWork.GetRepository<BasketContact>().AddAsync(contact);
                 await unitOfWork.SaveChangeAsync();
-
-
             }
-
-
         }
 
         public async Task<ICollection<BasketContact>> GetAllContactsAsync()
         {
             return await unitOfWork.GetRepository<BasketContact>().GetAllAsync();
+        }
+
+        public async Task<BasketContact> GetBasketContactViewAsync(int? id)
+        {
+            var basketContact = await unitOfWork.GetRepository<BasketContact>().GetByIdAsync(id);
+            if(basketContact is not null)
+                return basketContact;
+            return null;
         }
     }
 }

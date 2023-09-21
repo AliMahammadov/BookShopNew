@@ -13,10 +13,20 @@ namespace BookShopWeb.Areas.Manage.Controllers
         {
             this.basketContactService = basketContactService;
         }
- 
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await basketContactService.GetAllContactsAsync());
         }
+
+        [HttpGet]
+        public async Task<IActionResult> View(int? id)
+        {
+            if (id is not null)
+                return View(await basketContactService.GetBasketContactViewAsync(id));
+            return View();
+        }
+
     }
 }

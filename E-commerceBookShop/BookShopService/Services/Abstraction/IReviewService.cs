@@ -9,5 +9,7 @@ namespace BookShopService.Services.Abstraction
         Task<ICollection<Review>> GetAllReviewsAsync();
         Task<ICollection<Review>> GetAllReviewIncludeBookIdAsync(int? id);
         Task AddReviewAsync(int? id, HomeVM homeVM);
+        Task<Review> GetReviewById(int? id);
+        Task DeleteReviewAsync(int? id);
     }
 }

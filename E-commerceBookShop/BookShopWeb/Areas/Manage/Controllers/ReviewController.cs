@@ -14,6 +14,28 @@ namespace BookShopWeb.Areas.Manage.Controllers
             this.reviewService = reviewService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index() => View(await reviewService.GetAllReviewsAsync());
+
+        [HttpGet]
+        public async Task<IActionResult> View(int? id)
+        {
+            if (id is not null)
+                return View(await reviewService.GetReviewById(id));
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id is not null)
+            {
+                await reviewService.DeleteReviewAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+
     }
 }

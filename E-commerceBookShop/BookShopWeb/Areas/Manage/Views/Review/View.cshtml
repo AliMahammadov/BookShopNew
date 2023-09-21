@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+@model Review
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Review</li>
+                <li class="breadcrumb-item active">see</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+
+            <div class="col-lg-6 container">
+
+
+                <div class="card container">
+                    <div class="card-body">
+                        <h5 class="card-title">View review</h5>
+
+                        <!-- No Labels Form -->
+                        <form class="row g-3" method="post">
+                            <label>User Name:</label>
+                            <div class="col-md-12">
+                                <input asp-for="Name" class="form-control" readonly>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>User Email:</label>
+                                <input asp-for="Email" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-12">
+                                <label>User Comment:</label>
+                                <textarea rows="6" asp-for="Comment" class="form-control" readonly></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Book ID:</label>
+                                <input asp-for="BookId" class="form-control" readonly>
+                            </div>
+
+                            <div>
+                                <a class="btn btn-warning" asp-controller="Review" asp-action="Index"><i class="bi bi-arrow-return-right"></i></a>
+
+                            </div>
+                        </form><!-- End No Labels Form -->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
