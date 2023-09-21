@@ -58,7 +58,8 @@ namespace BookShopWeb.Controllers
             }
             user = new AppUser
             {
-                Name = registerVM.UserName,
+                Name = registerVM.Name,
+                Surname = registerVM.SurName,
                 Email = registerVM.Email,
                 UserName = registerVM.UserName,
             };
@@ -73,7 +74,7 @@ namespace BookShopWeb.Controllers
             }
             //await userManager.AddToRoleAsync(user, "Admin");
             //await signInManager.SignInAsync(user, true);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
         public async Task<IActionResult> Signout()
         {

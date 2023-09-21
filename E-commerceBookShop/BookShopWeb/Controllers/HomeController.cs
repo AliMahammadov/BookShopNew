@@ -1,4 +1,5 @@
-﻿using BookShopEntity.Entity;
+﻿using BookShopEntity.Entities;
+using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
 using BookShopViewModel.Entites;
 using BookShopViewModel.Entites.Home;
@@ -11,12 +12,14 @@ namespace BookShopWeb.Controllers
         private readonly IBookService bookService;
         private readonly IContactService contactService;
         private readonly IBasketContactService basketContactService;
+        private readonly IReviewService reviewService;
 
-        public HomeController(IBookService bookService, IContactService contactService, IBasketContactService basketContactService)
+        public HomeController(IBookService bookService, IContactService contactService, IBasketContactService basketContactService, IReviewService reviewService)
         {
             this.bookService = bookService;
             this.contactService = contactService;
             this.basketContactService = basketContactService;
+            this.reviewService = reviewService;
         }
 
         [HttpGet]
@@ -32,6 +35,7 @@ namespace BookShopWeb.Controllers
                 {
                     Book = book,
                     Books = await bookService.GetBookForAsCategory(id),
+                    Reviews = await reviewService.GetAllReviewIncludeBookIdAsync(id)
                 };
 
                 return View(homeVM);
@@ -65,9 +69,9 @@ namespace BookShopWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> AddBasket(int? id)
         {
-            Book book = await bookService.GetBookIncludeAsync(id);
-            if (book is not null)
+            if (id is not null)
             {
+                Book book = await bookService.GetBookIncludeAsync(id);
                 HomeVM homeVM = new HomeVM()
                 {
                     Book = book,
@@ -77,7 +81,7 @@ namespace BookShopWeb.Controllers
 
                 return View(homeVM);
             }
-            return View();
+            return View(nameof(Index), "Home");
         }
         [HttpPost]
         public async Task<IActionResult> AddBasket(HomeVM homeVM)

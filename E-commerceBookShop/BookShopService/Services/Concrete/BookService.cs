@@ -69,7 +69,7 @@ namespace BookShopService.Services.Concrete
 
         public async Task<IEnumerable<Book>> GetAllBooksWithPagination(int page)
         {
-            return await appDbContext.Books.ToList().ToPagedListAsync(page, 3);
+            return await appDbContext.Books.ToList().ToPagedListAsync(page, 10);
         }
 
         public async Task<Book> GetBookByIdAsync(int? id)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BookShopViewModel.Entites.AccountVM
 {
@@ -11,11 +6,15 @@ namespace BookShopViewModel.Entites.AccountVM
     {
         [Required, MaxLength(15)]
         public string Name { get; set; }
+        [Required, MaxLength(15)]
+        public string SurName { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
         [Required, MaxLength(15)]
         public string UserName { get; set; }
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
+        [Required, DataType(DataType.Password), Compare("Password")]
+        public string RepeatPassword { get; set; }
     }
 }
