@@ -19,7 +19,7 @@
                         <div class="service-card">
                             <i class="fas fa-truck mr-3"></i>
                             <div class="media-body">
-                                <h5 class="mt-0">Elmlər Akademiyası metrostansiyasına çatdırılma pulsuzdur.</h5>
+                                <h5 class="mt-0">Elmlər Akademiyası metrostansiyasına çatdırılma pulsuzdur</h5>
                                 <span></span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="service-card">
                             <i class="fas fa-piggy-bank mr-3"></i>
                             <div class="media-body">
-                                <h5 class="mt-0">Ödənişi nəğd və ya kart vsitəsilə etmək mümkündür</h5>
+                                <h5 class="mt-0">Ödənişi nəğd və ya kart vasitəsilə etmək mümkündür</h5>
                                 <span></span>
                             </div>
                         </div>
@@ -82,6 +82,7 @@
                     <p>İkinci əl kitabların online satış platforması.</p>
                 </div>
             </div>
+             
             <!-- END PORTFOLIO HEADING -->
             <!-- START FILTERS -->
 @*            <div class="col-12">
@@ -95,8 +96,51 @@
                 </div>
             </div>*@
             <!-- END FILTERS -->
+
+
+            @*//////////////////////////////////////////*@
+            <!-- Products Start -->
+            <div class="container-fluid pt-5 pb-3">
+                <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
+                <div class="row px-xl-5">
+                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                        <div class="product-item bg-light mb-4">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="~/slider/img/product-1.jpg" alt="">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Products End -->
+            @*//////////////////////////////////////////*@
+
+
+
+
             <!-- START PORTFOLIO IMAGES -->
-            <div class="col-12">
+   @*          <div class="col-12">
                 <div id="js-grid-blog-posts" class="cbp">
                     @foreach (var books in Model)
                     {
@@ -118,7 +162,41 @@
                     }
 
                 </div>
+            </div> *@
+            <!-- Vendor Start -->
+            <div class="container-fluid py-5">
+                <div class="row px-xl-5">
+                    <div class="col">
+                        <div class="owl-carousel vendor-carousel">
+                            <div class="bg-light p-4">
+                                <img src="~/slider/img/vendor-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="~/slider/img/vendor-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="~/slider/img/vendor-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="~/slider/img/vendor-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="~/slider/img/vendor-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-6.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-7.jpg" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-8.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- Vendor End -->
             <!-- END PORTFOLIO IMAGES -->
 
         </div>
