@@ -52,9 +52,9 @@
 
                             <div class="product-checklist">
                                 <ul>
-                                    <li><i class="fas fa-check"></i> Satisfaction 100% Guaranteed</li>
-                                    <li><i class="fas fa-check"></i> free shipping on orders over Manat 20</li>
-                                    <li><i class="fas fa-check"></i> 1 days easy Return</li>
+                                    <li><i class="fas fa-check"></i> Məmnuniyyətə 100% Zəmanət veririk</li>
+                            
+                                    <li><i class="fas fa-check"></i>Adətən 2-3 iş günü ərzində çatdırılır</li>
                                 </ul>
                             </div>
 
@@ -100,10 +100,9 @@
                                 <br />
                                 <ul class="share-product-icons">
                                     <li><p>Paylaş:</p></li>
-                                    <li><a href="javascript:void(0)" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0)" class="twitter-bg-hvr"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
-                                    <li><a href="javascript:void(0)" class="linkedin-bg-hvr"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0)" class="instagram-bg-hvr"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://@Model.Book.Facebook" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://@Model.Book.Instagram" class="instagram-bg-hvr"><i class="fab fa-instagram" aria-hidden="true"></i></a> </li>
+                                   
 
                                 </ul>
                             </div>
@@ -302,8 +301,9 @@
                 <div class="col-12">
                     <div class="lastest_featured_products owl-carousel owl-theme">
 
-                        @foreach (var books in Model.Books)
+                        @foreach (var books in Model.Books.Where(b=>b.Id!=Model.Book.Id))
                         {
+                      
 
                             <div class="lastest_arrival_items item">
 
