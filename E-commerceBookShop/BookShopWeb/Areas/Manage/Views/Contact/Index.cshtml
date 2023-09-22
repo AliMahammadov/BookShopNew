@@ -30,7 +30,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    @*<th scope="col">Image</th>*@
                                     <th scope="col">Name</th>
                                     <th scope="col">Surname</th>
                                     <th scope="col">Subject</th>
@@ -44,14 +43,12 @@
                                 {
                                     <tr>
                                         <th scope="row">@contacts.Id</th>
-                                        @*<th scope="row"><img style="width:70px;" src="~/manage/img/book/@contacts.ImageUrl" /></th>*@
                                         <td>@contacts.Name</td>
                                         <td>@contacts.Surname</td>
                                         <td>@contacts.Subject</td>
                                         <td>@contacts.Message</td>
                                         <td>@contacts.Email</td>
-                                        <td><a asp-area="Manage" asp-controller="Book" asp-action="Delete" asp-route-Id="@contacts.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
-                                        <td><a asp-area="Manage" asp-controller="Book" asp-action="Edit" asp-route-Id="@contacts.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
+                                        
                                     </tr>
                                 }
                             </tbody>
