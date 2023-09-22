@@ -34,6 +34,11 @@
     <None Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
     <None Include="Areas\Manage\Views\_ViewImports.cshtml" />
     <None Include="Areas\Manage\Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\book-shop\js\grid-to-carousel.js" />
+    <None Include="wwwroot\book-shop\js\map.js" />
+    <None Include="wwwroot\book-shop\js\megamenu.js" />
+    <None Include="wwwroot\book-shop\js\nouislider.min.js" />
+    <None Include="wwwroot\book-shop\js\script.js" />
     <None Include="wwwroot\manage\img\not-found.svg" />
     <None Include="wwwroot\manage\js\main.js" />
     <None Include="wwwroot\manage\vendor\apexcharts\apexcharts.amd.js" />
