@@ -1,35 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Slider -->
-    <!-- Favicon -->
-    <link href="~/slider/img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="~/slider/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="~/slider/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="~/slider/css/style.css" rel="stylesheet">
-    <!-- Slider -->
     <!-- Meta Tags For Seo + Page Optimization -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Themes Industry">
     <!-- description -->
-    <meta name="description" content="Book Store is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose agency and HTML5 template with 14 ready home page demos.">
+    <meta name="description" content="">
     <!-- keywords -->
-    <meta name="keywords" content="creative, modern, clean, bootstrap responsive, html5, css3, portfolio, blog, agency, templates, multipurpose, one page, corporate, start-up, studio, branding, designer, freelancer, carousel, parallax, photography, personal, masonry, grid, faq">
+    <meta name="keywords" content="">
     <!-- Page Title -->
     <title>Kitabal.biz.tr | @ViewData["Title"]</title>
+
     <!-- Favicon -->
     <link rel="icon" href="~/vendor/img/favicon.ico">
     <!-- Bundle -->
@@ -50,7 +34,23 @@
     <!-- Custom Css  -->
     <link rel="stylesheet" href="~/book-shop/css/custom.css">
 
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/import/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/import/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/import/css/style.css" rel="stylesheet">
+
     @await RenderSectionAsync("AddCss", required:false)
+
 </head>
 <body>
 
@@ -136,6 +136,49 @@
         </div>
     </div>
     <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-dark mb-30">
+        <div class="row px-xl-5">
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
+                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a href="" class="btn px-0">
+                                <i class="fas fa-heart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                            <a href="" class="btn px-0 ml-3">
+                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
     @RenderBody()
     <div class="footer">
         <div class="container">
@@ -197,220 +240,7 @@
         </div>
     </div>
     <!--foo0ter1 sec end-->
-    <!--START SEARCH AREA-->
-    <div class="search-box-overlay">
-        <a><i class="fas fa-times cross-sign" id="close-window"></i></a>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 search-col">
-                    <form action="javascript:void(0)">
-                        <div class="input-group search-box-form">
-                            <input type="text" class="form-control" placeholder="Search Here" aria-label="Search Here">
-                            <div class="input-group-prepend">
-                                <button class="input-group-text" type="submit" id="basic-addon1"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="search-listing row">
-                    <div class="col-12 mb-4">
-                        <h4 class="">Filtered Items</h4>
-                    </div>
-                    <div class="col-12">
-                        <div class="listing-search-scroll">
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-1.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">So Sad Today</a></h5>
-                                    <p class="category">Award Winning Book</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-2.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">As I Lay Dying</a></h5>
-                                    <p class="category">Award Winning Book</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-3.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">Love Does</a></h5>
-                                    <p class="category">Award Winning Book</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-2-1.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">The Last Stand</a></h5>
-                                    <p class="category">Award Winning Book</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <hr>
-                </div>
-
-                <div class="col-12">
-                    <h4 class="outlet-title text-center"> - Author - </h4>
-                </div>
-
-                <div class="col-12">
-                    <div class="search-box-meida-items owl-carousel owl-theme">
-
-                        <div class="item">
-                            <div class="brand-search-box ml-auto mr-auto">
-                                <div class="media">
-                                    <div class="brand-box-holder">
-                                        <a href="javascript:void(0)"> <img class="mr-3" src="~/book-shop/img/author1.jpg" alt="Generic placeholder image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mt-0"><a href="javascript:void(0)"> Eva Smith</a></h5>
-                                        <p> Cras sit amet nibh libero.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="item">
-                            <div class="brand-search-box ml-auto mr-auto">
-                                <div class="media">
-                                    <div class="brand-box-holder">
-                                        <a href="javascript:void(0)"> <img class="mr-3" src="~/book-shop/img/author2.jpg" alt="Generic placeholder image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mt-0"><a href="javascript:void(0)">Rosa Parks</a></h5>
-                                        <p> Cras sit amet nibh libero.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="item">
-                            <div class="brand-search-box ml-auto mr-auto">
-                                <div class="media">
-                                    <div class="brand-box-holder">
-                                        <a href="javascript:void(0)"> <img class="mr-3" src="~/book-shop/img/author3.jpg" alt="Generic placeholder image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mt-0"><a href="javascript:void(0)">Alan Yang</a></h5>
-                                        <p> Cras sit amet nibh libero.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="item">
-                            <div class="brand-search-box ml-auto mr-auto">
-                                <div class="media">
-                                    <div class="brand-box-holder">
-                                        <a href="javascript:void(0)"><img class="mr-3" src="~/book-shop/img/author4.jpg" alt="Generic placeholder image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mt-0"><a href="javascript:void(0)">Kam John</a></h5>
-                                        <p> Cras sit amet nibh libero.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!--END SEARCH AREA -->
-    <!--START Cart Box-->
-    <div class="cart-box-overlay">
-        <a><i class="fas fa-times cross-sign" id="close-window1"></i></a>
-
-        <div class="container">
-            <div class="row">
-                <div class="search-listing row">
-                    <div class="col-12 mb-4">
-                        <h4 class="">Shop Cart</h4>
-                    </div>
-                    <div class="col-12">
-                        <div class="listing-search-scroll">
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-1.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">So Sad Today</a></h5>
-                                    <p class="category">light wear Lastest</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-2.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">As I Lay Dying</a></h5>
-                                    <p class="category">light wear Lastest</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-3.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">Love Does</a></h5>
-                                    <p class="category">light wear Lastest</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="media row">
-                                <div class="img-holder ml-1 mr-2 col-4">
-                                    <a href="javascript:void(0)"><img src="~/book-shop/img/book-2-1.jpg" class="align-self-center" alt="cartitem"></a>
-                                </div>
-                                <div class="media-body mt-auto mb-auto col-8">
-                                    <h5 class="name"><a href="javascript:void(0)">The Last Stand</a></h5>
-                                    <p class="category">light wear Lastest</p>
-                                    <a class="btn black-sm-btn" href="~/book-shop/shop-cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                    <a class="btn black-sm-btn" href="javascript:void(0)"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bag-btn">
-                <h4 class="total"><span>Total: </span>100$</h4>
-                <a href="javascript:void(0)" class="btn green-color-yellow-gradient-btn">View Bag </a>
-                <a href="javascript:void(0)" class="btn green-color-yellow-gradient-btn">Checkout </a>
-            </div>
-
-        </div>
-
-    </div>
     <script src="~/book-shop/js/map.js"></script>
     <!--END Cart Box -->
     <!-- JavaScript -->
@@ -429,20 +259,16 @@
     <!-- Custom Script -->
     <script src="~/book-shop/js/script.js"></script>
 
-    @await RenderSectionAsync("Scripts", required:false)
-
-    <!-- sliders -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="~/slider/lib/easing/easing.min.js"></script>
-    <script src="~/slider/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="~/slider/mail/jqBootstrapValidation.min.js"></script>
-    <script src="~/slider/mail/contact.js"></script>
+    <!-- JavaScript Libraries -->
 
     <!-- Template Javascript -->
-    <script src="~/slider/js/main.js"></script>
-    <!-- sliders-->
+    <script src="~/import/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required:false)
+
+
+
+
+
 </body>
 </html>
