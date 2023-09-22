@@ -105,13 +105,15 @@
                                 <div class="item"> <a href="~/manage/img/book/@books.ImageUrl" class="cbp-caption" data-fancybox="gallery1" data-title="Book 1"><img src="~/manage/img/book/@books.ImageUrl" alt="Book 1"></a></div>
 
                             </div>
-                            <div class="row">
+                            <div style="background:#853" class="row text-center">
                                 <div class="col-12 text-center">
-                                    <div class="cbp-l-grid-blog-title"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id" class="portfolio-title">@books.Name</a></div>
-                                    <div class="cbp-l-grid-blog-title"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id" class="portfolio-title">@books.ShortDescription</a></div>
+                                    <div class="cbp-l-grid-blog-title"><a class="portfolio-title">@books.Name</a></div>
                                 </div>
                                 <div class="col-12 text-center">
                                     <div class="cbp-l-grid-blog-desc portfolio-des">@books.Price AZN</div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="cbp-l-grid-blog-desc portfolio-des"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id">Ətraflı</a></div>
                                 </div>
                             </div>
                         </div>
