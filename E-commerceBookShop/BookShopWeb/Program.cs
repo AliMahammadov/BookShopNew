@@ -1,8 +1,5 @@
 using BookShopData.Extensions;
 using BookShopService.Extensions;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.Razor;
-using System.Globalization;
 
 public class Program
 {
@@ -10,13 +7,10 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
-        builder.Services.AddControllersWithViews().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+        builder.Services.AddControllersWithViews();
         builder.Services.LoadDataLayerExtension(builder.Configuration);
         builder.Services.LoadServiceLayerExtension();
-        builder.Services.AddLocalization(opt =>
-        {
-            opt.ResourcesPath = "Resources";
-        });
+
 
 
         var app = builder.Build();
@@ -33,10 +27,6 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
-
-        var supportedCulture = new[] { "en", "tr", "ru", "az" };
-        var localizationOption = new RequestLocalizationOptions().SetDefaultCulture(supportedCulture[3]).AddSupportedUICultures(supportedCulture).AddSupportedUICultures(supportedCulture);
-        app.UseRequestLocalization(localizationOption);
 
         app.MapControllerRoute(
         name: "areas",
