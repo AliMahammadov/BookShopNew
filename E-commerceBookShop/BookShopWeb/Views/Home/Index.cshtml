@@ -96,30 +96,18 @@
             </div>*@
             <!-- END FILTERS -->
             <!-- START PORTFOLIO IMAGES -->
-            <div class="col-12">
-                <div id="js-grid-blog-posts" class="cbp">
-                    @foreach (var books in Model)
-                    {
-                        <div class="cbp-item">
-                            <div class="cbp-caption-defaultWrap  owl-theme sync-portfolio-carousel owl-carousel">
-                                <div class="item"> <a href="~/manage/img/book/@books.ImageUrl" class="cbp-caption" data-fancybox="gallery1" data-title="Book 1"><img src="~/manage/img/book/@books.ImageUrl" alt="Book 1"></a></div>
-
-                            </div>
-                            <div style="background:#853" class="row text-center">
-                                <div class="col-12 text-center">
-                                    <div class="cbp-l-grid-blog-title"><a class="portfolio-title">@books.Name</a></div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <div class="cbp-l-grid-blog-desc portfolio-des">@books.Price AZN</div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <div class="cbp-l-grid-blog-desc portfolio-des"><a asp-controller="Home" asp-action="Detail" asp-route-Id="@books.Id">Ətraflı</a></div>
-                                </div>
-                            </div>
+            <div class="row text-center" style="justify-content:center">
+                @foreach (var books in Model)
+                {
+                    <div class="card" style="width: 18rem;margin:10px">
+                        <img class="card-img-top" src="~/manage/img/book/@books.ImageUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@books.Name</h5>
+                            <p class="card-text">@books.Price AZN</p>
+                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@books.Id" class="btn btn-primary">Ətraflı</a>
                         </div>
-                    }
-
-                </div>
+                    </div>
+                }
             </div>
             <!-- END PORTFOLIO IMAGES -->
 
