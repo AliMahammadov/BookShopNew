@@ -5,7 +5,7 @@
 @model ICollection<Book>
 <!--BANNER START-->
 
-<main role="main">
+<main role="main" class="container">
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -108,7 +108,7 @@
 <!-- START PORTOLIO SECTION -->
 <div class="portfolio-section">
     <div class="container">
-        <div class="row">
+        <div class="row container-md">
 
             <!-- START PORTFOLIO HEADING -->
             <div class="col-12">
@@ -131,11 +131,11 @@
             </div>*@
             <!-- END FILTERS -->
             <!-- START PORTFOLIO IMAGES -->
-            <div class="row text-center" style="justify-content:center">
+            <div class="row text-center container">
                 @foreach (var books in Model)
                 {
-                    <div class="card" style="width: 18rem;margin:10px">
-                        <img class="card-img-top" src="~/manage/img/book/@books.ImageUrl" alt="Card image cap">
+                    <div class="card" style="width: 16rem;margin:10px">
+                        <img class="card-img-top" src="~/manage/img/book/@books.ImageUrl">
                         <div class="card-body">
                             <h5 class="card-title">@books.Name</h5>
                             <p class="card-text">@books.Price AZN</p>
@@ -150,43 +150,7 @@
         </div>
 
     </div>
-    <!-- Vendor Start -->
-    <div class="container-fluid py-5">
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel vendor-carousel">
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download (1).jpeg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download (2).png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download (3).png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download (4).png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download (5).png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/download.png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/images (1).png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/images.jpeg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="~/slider/logo/images.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
+    <hr />
 </div>
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
