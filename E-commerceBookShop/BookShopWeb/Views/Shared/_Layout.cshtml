@@ -53,14 +53,15 @@
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-
-                             <div class="d-inline-flex align-items-center d-block d-lg-none">
-                      <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>       
-             @if (User.Identity.IsAuthenticated)
+             
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Home</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                    @if (User.Identity.IsAuthenticated)
                     {
                         @if (User.IsInRole("Admin"))
                         {
-                            <button type="button" class="nav-link" asp-area="Manage" asp-action="index" asp-controller="Home"><i class="fas fa-user-tie"></i>Admin</button>
+                            <button type="button" class="nav-link" asp-area="Manage" asp-action="index" asp-controller="Home">Admin</button>
                     
                         }
                         else if (!User.IsInRole("Admin"))
@@ -69,7 +70,7 @@
                             <a class="nav-item dropdown position-relative">
 
                                 <button  asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-user-alt"></i>&nbsp;&nbsp;@User.Identity.Name</button>
-                                        <a><i class="lni-angle-double-right right-arrow"></i><a asp-action="Signout" asp-controller="Account" class="dropdown-item">Çıxış</a></a>
+                                        <a><a asp-action="Signout" asp-controller="Account" class="dropdown-item">Çıxış</a></a>
                           
                             </a>
                         }
@@ -79,10 +80,10 @@
                     {
                         <a class="nav-item dropdown position-relative">
 
+
+                            <a asp-action="LogIn" asp-controller="Account">
+                                <button class="nav-link dropdown-toggle">Giriş</button>
                          
-                                <a>
-                                    <a><i class="lni-angle-double-right right-arrow"></i><a asp-action="LogIn" asp-controller="Account" class="dropdown-item">Giriş</a></a>
-                                    <a><i class="lni-angle-double-right right-arrow"></i><a asp-action="Register" asp-controller="Account" class="dropdown-item">Qeydiyyat</a></a>
                                 </a>
                       
                         </a>
@@ -96,7 +97,7 @@
         <div class="container">
             <div class="row upper-nav">
                 <div class=" text-left nav-logo">
-                    <a asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/book-shop/img/logo.png" alt="img"></a>
+                    <a asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/slider/Screenshot 2023-09-23 153716.png" alt="img"></a>
                 </div>
                 <div class="ml-auto nav-mega d-flex justify-content-end align-items-center">
                     <header class="site-header" id="header">
