@@ -5,35 +5,36 @@
 @model HomeVM
 
 <!--Slider START-->
-    <div id="slider-sec" class="slider-sec parallax">
+<section class="contact-sec" id="contact-sec">
+<div id="slider-sec" class="slider-sec parallax slider-area">
+    <!-- Main Slider -->
+    <div class="swiper-container main-slider swiper-arrow with-bg_white swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+        <div class="swiper-wrapper" id="swiper-wrapper-d41e983cec75651d" aria-live="off" style="transition-duration: 0ms;">
 
-        <!-- Main Slider -->
-        <div class="swiper-container main-slider swiper-arrow with-bg_white swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-            <div class="swiper-wrapper" id="swiper-wrapper-d41e983cec75651d" aria-live="off" style="transition-duration: 0ms;">
-                @foreach (var books in Model.Books.Take(3).OrderByDescending(b => b.Id))
-                {
-                    <div class="swiper-slide animation-style-01 swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="2 / 4" style="width: 4304px; opacity: 0; transform: translate3d(-4304px, 0px, 0px); transition-duration: 0ms;">
-                        <div class="slide-inner style-1 bg-height" data-bg-image="assets/images/slider/bg/1-1.jpg" style="background-image: url(&quot;assets/images/slider/bg/1-1.jpg&quot;);">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 order-2 order-lg-1 align-self-center">
-                                        <div class="slide-content text-black">
-                                            <span class="offer">@books.Price AZN</span>
-                                            <h2 class="title">@books.Name</h2>
-                                            <p class="short-desc">
-                                                @books.ShortDescription
-                                            </p>
-                                            <div class="btn-wrap">
-                                                <a class="btn btn-custom-size xl-size btn-pronia-primary" asp-controller="Home" asp-action="Detail" asp-route-id="@books.Id">Ətraflı</a>
-                                            </div>
+            @foreach (var books in Model.Books.Take(3).OrderByDescending(b => b.Id))
+            {
+
+                <div class="swiper-slide animation-style-01 swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="2 / 4" style="width: 4304px; opacity: 0; transform: translate3d(-4304px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="slide-inner style-1 bg-height" data-bg-image="assets/images/slider/bg/1-1.jpg" style="background-image: url(&quot;assets/images/slider/bg/1-1.jpg&quot;);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 order-2 order-lg-1 align-self-center">
+                                    <div class="slide-content text-black">
+                                        <span class="offer">@books.Price AZN</span>
+                                        <h2 class="title">@books.Name</h2>
+                                        <p class="short-desc">
+                                            @books.ShortDescription
+                                        </p>
+                                        <div class="btn-wrap">
+                                            <a class="btn btn-custom-size xl-size btn-pronia-primary" asp-controller="Home" asp-action="Detail" asp-route-id="@books.Id">Ətraflı</a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-8 offset-md-2 offset-lg-0 order-1 order-lg-2">
-                                        <div class="inner-img">
-                                            <div class="scene fill" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; position: relative; pointer-events: none;">
-                                                <div class="expand-width" data-depth="0.2" style="transform: translate3d(-11.4px, 4.5px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;">
-                                                    <img src="~/manage/img/book/@books.ImageUrl" alt="Inner Image">
-                                                </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 offset-md-2 offset-lg-0 order-1 order-lg-2">
+                                    <div class="inner-img">
+                                        <div class="scene fill" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; position: relative; pointer-events: none;">
+                                            <div class="expand-width" data-depth="0.2" style="transform: translate3d(-11.4px, 4.5px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;">
+                                                <img src="~/manage/img/book/@books.ImageUrl" alt="Inner Image">
                                             </div>
                                         </div>
                                     </div>
@@ -41,17 +42,22 @@
                             </div>
                         </div>
                     </div>
-                }
-            </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination d-md-none swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span></div>
+                </div>
 
-            <!-- Add Arrows -->
-            <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
-            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            }
+
+
         </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination d-md-none swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span></div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
+        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
+</div>
+</section>
 <!--Slider END-->
 <!--START OUR SERVICES-->
 <div class="our-services">
