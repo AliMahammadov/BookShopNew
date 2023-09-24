@@ -1,4 +1,5 @@
 ﻿using BookShopEntity.Entity;
+using BookShopViewModel;
 using BookShopViewModel.Entites;
 
 namespace BookShopService.Services.Abstraction
@@ -14,5 +15,6 @@ namespace BookShopService.Services.Abstraction
         Task<ICollection<Book>> GetBookForAsCategory(int? id);
         Task<BookVM> GetBookEditAsync(int? id);
         Task UpdateBookAsync(int? id, BookVM bookVM);
+        Task<PaginationVM<Book>> PaginationForBookAsync(int page);
     }
 }
