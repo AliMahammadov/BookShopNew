@@ -33,7 +33,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Comment</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Sent Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,6 +44,7 @@
                                         <td>@reviews.Name</td>
                                         <td>@reviews.Email</td>
                                         <td>@reviews.Comment</td>
+                                        <td>@reviews.CreateAt</td>
                                         <td><a asp-area="Manage" asp-controller="Review" asp-action="Delete" asp-route-Id="@reviews.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
                                         <td><a asp-area="Manage" asp-controller="Review" asp-action="View" asp-route-Id="@reviews.Id" class="btn btn-warning" title="View"><i class="bi bi-box-arrow-right"></i></a></td>
                                     </tr>
