@@ -23,7 +23,16 @@ namespace BookShopWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index() => View(await bookService.GetAllBooksAsync());
+        public async Task<IActionResult> Index(int page = 1)
+        {
+            HomeVM homeVM = new HomeVM
+            {
+                Books = await bookService.GetAllBooksAsync(),
+                PaginationBooks = await bookService.PaginationForBookAsync(page)
+            };
+
+            return View(homeVM);
+        }
 
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
