@@ -3,46 +3,61 @@
 }
 
 @model ICollection<Book>
-<!--BANNER START-->
 
-<main role="main" class="container">
+<!--Slider START-->
+<div id="slider-sec" class="slider-sec parallax slider-area">
+    <!-- Main Slider -->
+    <div class="swiper-container main-slider swiper-arrow with-bg_white swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+        <div class="swiper-wrapper" id="swiper-wrapper-d41e983cec75651d" aria-live="off" style="transition-duration: 0ms;">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-        </ol>
-        <div class="carousel-inner">
+            @foreach (var books in Model.Take(3).OrderByDescending(b => b.Id))
+            {
 
-            <div class="carousel-item active">
-                <img class="second-slide" src="~/manage/img/book/5f1afd2e-5b09-4481-90f3-17ca9f68d4f1Image 1.jpg" alt="Second slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <div class="swiper-slide animation-style-01 swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="2 / 4" style="width: 4304px; opacity: 0; transform: translate3d(-4304px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="slide-inner style-1 bg-height" data-bg-image="assets/images/slider/bg/1-1.jpg" style="background-image: url(&quot;assets/images/slider/bg/1-1.jpg&quot;);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 order-2 order-lg-1 align-self-center">
+                                    <div class="slide-content text-black">
+                                        <span class="offer">@books.Price AZN</span>
+                                        <h2 class="title">@books.Name</h2>
+                                        <p class="short-desc">
+                                            @books.ShortDescription
+                                        </p>
+                                        <div class="btn-wrap">
+                                            <a class="btn btn-custom-size xl-size btn-pronia-primary" asp-controller="Home" asp-action="Detail" asp-route-id="@books.Id">Ətraflı</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 offset-md-2 offset-lg-0 order-1 order-lg-2">
+                                    <div class="inner-img">
+                                        <div class="scene fill" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; position: relative; pointer-events: none;">
+                                            <div class="expand-width" data-depth="0.2" style="transform: translate3d(-11.4px, 4.5px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;">
+                                                <img src="~/manage/img/book/@books.ImageUrl" alt="Inner Image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            }
+
 
         </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination d-md-none swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span></div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
+        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-d6e1afa91005106995"></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
+</div>
 
-
-
-</main>
-
-<!--BANNER END-->
-
+<!--Slider END-->
 <!--START OUR SERVICES-->
 <div class="our-services">
     <div class="container">
@@ -135,7 +150,7 @@
                 @foreach (var books in Model)
                 {
                     <div class="card" style="width: 16rem;margin:10px">
-                        <img class="card-img-top" src="~/manage/img/book/@books.ImageUrl">
+                        <img class="card-img-top" style="width:100%" src="~/manage/img/book/@books.ImageUrl">
                         <div class="card-body">
                             <h5 class="card-title">@books.Name</h5>
                             <p class="card-text">@books.Price AZN</p>
@@ -153,15 +168,42 @@
     <hr />
 </div>
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="~/slider/lib/easing/easing.min.js"></script>
-<script src="~/slider/lib/owlcarousel/owl.carousel.min.js"></script>
 
-<!-- Contact Javascript File -->
-<script src="~/slider/mail/jqBootstrapValidation.min.js"></script>
-<script src="~/slider/mail/contact.js"></script>
+@section AddCss{
 
-<!-- Template Javascript -->
-<script src="~/slider/js/main.js"></script>
+    <!-- CSS
+    ============================================ -->
+
+    <link rel="stylesheet" href="~/assets/css/Pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="~/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="~/assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/assets/css/nice-select.css" />
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.min.css" />
+    <link rel="stylesheet" href="~/assets/css/ion.rangeSlider.min.css" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+
+@section Scripts{
+    <!-- JS Files
+    ============================================ -->
+
+    <script src="~/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="~/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="~/assets/js/vendor/jquery.waypoints.js"></script>
+    <script src="~/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="~/assets/js/plugins/wow.min.js"></script>
+    <script src="~/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.nice-select.js"></script>
+    <script src="~/assets/js/plugins/parallax.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/plugins/tippy.min.js"></script>
+    <script src="~/assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <script src="~/assets/js/plugins/mailchimp-ajax.js"></script>
+    <script src="~/assets/js/plugins/jquery.counterup.js"></script>
+
+    <!--Main JS (Common Activation Codes)-->
+    <script src="~/assets/js/main.js"></script>
+}
