@@ -2,10 +2,12 @@
 using BookShopData.UnitOfWorks;
 using BookShopEntity.Entity;
 using BookShopService.Services.Abstraction;
+using BookShopViewModel;
 using BookShopViewModel.Entites;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 using X.PagedList;
 
 namespace BookShopService.Services.Concrete
@@ -114,6 +116,17 @@ namespace BookShopService.Services.Concrete
         public async Task<Book> GetBookIncludeAsync(int? id)
         {
             return await appDbContext.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public async Task<PaginationVM<Book>> PaginationForBookAsync(int page)
+        {
+            PaginationVM<Book> paginationVM = new PaginationVM<Book>();
+            paginationVM.MaxPageCount = (int)Math.Ceiling((decimal)appDbContext.Books.Count() / 20);
+            paginationVM.CurrentPage = page;
+            if (paginationVM.CurrentPage > paginationVM.MaxPageCount || page < 1) return null;
+            paginationVM.Items = await appDbContext.Books.Skip((page - 1) * 20).Take(20).ToListAsync();
+
+            return paginationVM;
         }
 
         public async Task UpdateBookAsync(int? id, BookVM bookVM)

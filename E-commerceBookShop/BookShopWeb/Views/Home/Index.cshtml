@@ -2,7 +2,7 @@
     ViewData["Title"] = "Kitablar";
 }
 
-@model ICollection<Book>
+@model HomeVM
 
 <!--Slider START-->
 <div id="slider-sec" class="slider-sec parallax slider-area">
@@ -10,7 +10,7 @@
     <div class="swiper-container main-slider swiper-arrow with-bg_white swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
         <div class="swiper-wrapper" id="swiper-wrapper-d41e983cec75651d" aria-live="off" style="transition-duration: 0ms;">
 
-            @foreach (var books in Model.Take(3).OrderByDescending(b => b.Id))
+            @foreach (var books in Model.Books.Take(3).OrderByDescending(b => b.Id))
             {
 
                 <div class="swiper-slide animation-style-01 swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="2 / 4" style="width: 4304px; opacity: 0; transform: translate3d(-4304px, 0px, 0px); transition-duration: 0ms;">
@@ -121,8 +121,8 @@
 </div>
 <!--END OUR SERVICES-->
 <!-- START PORTOLIO SECTION -->
-<div class="portfolio-section">
-    <div class="container">
+<div class="portfolio-section" style="display:block;justify-content:center">
+    <div style="margin-bottom:15px;" class="container">
         <div class="row container-md">
 
             <!-- START PORTFOLIO HEADING -->
@@ -146,8 +146,8 @@
             </div>*@
             <!-- END FILTERS -->
             <!-- START PORTFOLIO IMAGES -->
-            <div class="row text-center container">
-                @foreach (var books in Model)
+            <div class="row text-center container" style="justify-content:center">
+                @foreach (var books in Model.PaginationBooks.Items)
                 {
                     <div class="card" style="width: 16rem;margin:10px">
                         <img class="card-img-top" style="width:100%" src="~/manage/img/book/@books.ImageUrl">
@@ -161,14 +161,40 @@
             </div>
 
             <!-- END PORTFOLIO IMAGES -->
-
         </div>
-
     </div>
-    <hr />
-</div>
-<!-- Back to Top -->
 
+    <nav style="display:flex;justify-content:center" aria-label="Page navigation example">
+        <ul class="pagination">
+            @if (Model.PaginationBooks.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.PaginationBooks.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            }
+            @for (int i = 1; i <= Model.PaginationBooks.MaxPageCount; i++)
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+            }
+            @if (Model.PaginationBooks.CurrentPage < Model.PaginationBooks.MaxPageCount)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.PaginationBooks.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+
+<hr />
+<!-- Back to Top -->
 @section AddCss{
 
     <!-- CSS
@@ -183,9 +209,11 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="~/assets/css/style.css" />
+
 }
 
 @section Scripts{
+
     <!-- JS Files
     ============================================ -->
 
@@ -206,4 +234,7 @@
 
     <!--Main JS (Common Activation Codes)-->
     <script src="~/assets/js/main.js"></script>
+
+
+
 }
