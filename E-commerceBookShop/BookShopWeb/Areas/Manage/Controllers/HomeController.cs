@@ -1,4 +1,5 @@
 ﻿using BookShopService.Services.Abstraction;
+using BookShopViewModel.Entites.AdminVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +9,25 @@ namespace EBusinessWeb.Areas.Manage.Controllers
     public class HomeController : Controller
     {
         private readonly IBookService bookService;
+        private readonly IUserService userService;
 
-        public HomeController(IBookService bookService)
+        public HomeController(IBookService bookService, IUserService userService)
         {
             this.bookService = bookService;
+            this.userService = userService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index() => View();
+        public async Task<IActionResult> Index()
+        {
+
+            CombinedAdminVM adminVM = new CombinedAdminVM
+            {
+                Users = await userService.GetAllUsersAsync(),
+                Books = await bookService.GetAllBooksAsync(),
+            };
+
+            return View(adminVM);
+        }
     }
 }
