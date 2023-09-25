@@ -33,7 +33,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Create Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,8 +44,9 @@
                                         @*<th scope="row"><img style="width:70px;" src="~/manage/img/book/@users.ImageUrl" /></th>*@
                                         <td>@users.Name</td>
                                         <td>@users.Email</td>
-                                        <td><a asp-area="Manage" asp-controller="User" asp-action="Delete" asp-route-Id="@users.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
-                                        <td><a asp-area="Manage" asp-controller="User" asp-action="Edit" asp-route-Id="@users.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
+                                        <td>@DateTime.Now</td>
+                                       @*  <td><a asp-area="Manage" asp-controller="User" asp-action="Delete" asp-route-Id="@users.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
+                                        <td><a asp-area="Manage" asp-controller="User" asp-action="Edit" asp-route-Id="@users.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td> *@
                                     </tr>
                                 }
                             </tbody>

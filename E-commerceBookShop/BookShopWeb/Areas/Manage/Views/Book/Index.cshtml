@@ -91,7 +91,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Short Description</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Create Time</th>
+                                    <th scope="col">Update Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,6 +104,8 @@
                                         <td>@books.Name</td>
                                         <td>@books.ShortDescription</td>
                                         <td>@books.Price</td>
+                                        <td>@DateTime.Now</td>
+                                        <td>@books.UpdateAt</td>
                                         <td><a asp-area="Manage" asp-controller="Book" asp-action="Delete" asp-route-Id="@books.Id" class="btn btn-danger" title="Remove"><i class="bi bi-trash"></i></a></td>
                                         <td><a asp-area="Manage" asp-controller="Book" asp-action="Edit" asp-route-Id="@books.Id" class="btn btn-warning" title="Edit"><i class="bx bxs-edit"></i></a></td>
                                     </tr>
