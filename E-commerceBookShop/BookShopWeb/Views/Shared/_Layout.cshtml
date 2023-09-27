@@ -62,7 +62,7 @@
                     {
                         @if (User.IsInRole("Admin"))
                         {
-                            <button type="button" class="nav-link" asp-area="Manage" asp-action="index" asp-controller="Home">Admin</button>
+                            <a type="button" class="nav-link" asp-area="Manage" asp-action="index" asp-controller="Home">Admin</a>
 
                         }
                         else if (!User.IsInRole("Admin"))
