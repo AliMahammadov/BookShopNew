@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
-using X.PagedList;
 
 namespace BookShopService.Services.Concrete
 {
@@ -69,10 +68,6 @@ namespace BookShopService.Services.Concrete
             return await unitOfWork.GetRepository<Book>().GetAllAsync();
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooksWithPagination(int page)
-        {
-            return await appDbContext.Books.ToList().ToPagedListAsync(page, 10);
-        }
 
         public async Task<Book> GetBookByIdAsync(int? id)
         {

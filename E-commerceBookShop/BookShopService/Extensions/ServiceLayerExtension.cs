@@ -1,4 +1,5 @@
 ﻿using BookShopData.DAL;
+using BookShopEntity.Entities;
 using BookShopEntity.Entities.User;
 using BookShopService.Services.Abstraction;
 using BookShopService.Services.Concrete;
@@ -19,13 +20,21 @@ namespace BookShopService.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddIdentity<AppUser, IdentityRole>(option =>
             {
+                option.Password.RequireLowercase = true;
                 option.Password.RequireDigit = true;
                 option.Password.RequireNonAlphanumeric = false;
-                option.Password.RequiredLength = 5;
-                option.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                option.Password.RequiredLength = 3;
+                option.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                option.User.RequireUniqueEmail = true;
                 option.Lockout.AllowedForNewUsers = true;
 
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>().AddErrorDescriber<CustomIdentityValidator>();
+
+            //services.AddControllersWithViews().AddFluentValidation(opt =>
+            //{
+            //    opt.DisableDataAnnotationsValidation = true;
+            //    opt.ValidatorOptions.LanguageManager.Culture = new CultureInfo("az");
+            //});
             return services;
         }
     }

@@ -1,69 +1,56 @@
-﻿using BookShopEntity.Entities.User;
-using BookShopViewModel.Entites.AccountVM;
+﻿using BookShopDto.Dtos.AppUserDtos;
+using BookShopEntity.Entities.User;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 
 namespace BookShopWeb.Controllers
 {
     public class AccountController : Controller
     {
-        SignInManager<AppUser> signInManager;
-        UserManager<AppUser> userManager;
-        RoleManager<IdentityRole> roleManager;
 
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        private readonly UserManager<AppUser> userManager;
+
+        public AccountController(UserManager<AppUser> userManager)
         {
-            this.signInManager = signInManager;
             this.userManager = userManager;
-            this.roleManager = roleManager;
         }
 
-        public async Task<IActionResult> Login()
-        {
-            return View();
-        }
+        [HttpGet]
+        public async Task<IActionResult> Register() => View();
+
         [HttpPost]
-
-        public async Task<IActionResult> Login(LoginVM loginVM)
-        {
-            if(!ModelState.IsValid) return View();
-            AppUser user = await userManager.FindByNameAsync(loginVM.Username);
-            if (user == null)
-            {
-                ModelState.AddModelError("Username","Login or Password is wrong");
-                return View();
-            }
-            var result = await signInManager.PasswordSignInAsync(user, loginVM.Password,loginVM.RememberMe,true);
-            if (!result.Succeeded)
-            {
-                ModelState.AddModelError("Password", "Login or Password is wrong");
-                return View();
-            }
-            return RedirectToAction("Index", "Home");
-        }
-
-        public async Task<IActionResult> Register()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterVM registerVM)
+        public async Task<IActionResult> Register(AppUserRegisterDto registerDto)
         {
             if (!ModelState.IsValid) return View();
-            AppUser user = await userManager.FindByNameAsync(registerVM.UserName);
-            if (user != null)
+            AppUser appuseremail = await userManager.FindByEmailAsync(registerDto.Email);
+
+            if(appuseremail is not null)
             {
-                ModelState.AddModelError("Username", "This User already exists");
+                ModelState.AddModelError("Email", "Bu email artıq mövcuddur.");
                 return View();
             }
-            user = new AppUser
+
+            if(!(registerDto.Password.Equals(registerDto.ConfirmPassword)))
             {
-                Name = registerVM.Name,
-                Surname = registerVM.SurName,
-                Email = registerVM.Email,
-                UserName = registerVM.UserName,
+                ModelState.AddModelError("", "Şifrələr bir biri ilə uyğunluq təşkil etmir");
+                return View();
+            }
+
+            Random random = new Random();
+            int code = random.Next(100000, 1000000);
+            AppUser user = new AppUser()
+            {
+                Name = registerDto.Name,
+                Surname = registerDto.SurName,
+                UserName = registerDto.UserName,
+                Email = registerDto.Email,
+                ConfirmCode = code
             };
-            IdentityResult result = await userManager.CreateAsync(user,registerVM.Password);
+
+            IdentityResult result = await userManager.CreateAsync(user,registerDto.Password);
+
             if (!result.Succeeded)
             {
                 foreach (var item in result.Errors)
@@ -72,29 +59,30 @@ namespace BookShopWeb.Controllers
                 }
                 return View();
             }
-            //await userManager.AddToRoleAsync(user, "Admin");
-            //await signInManager.SignInAsync(user, true);
-            return RedirectToAction("Login", "Account");
-        }
-        public async Task<IActionResult> Signout()
-        {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
 
-        }
-        public async Task<IActionResult> AddRoles()
-        {
-            await roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-           
-            return View();
+            MimeMessage mimeMessage = new MimeMessage();
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("Kitabal.biz.tr", "bookstore20232024@gmail.com");
+            MailboxAddress mailboxAddressTo = new MailboxAddress("User", user.Email);
+            mimeMessage.From.Add(mailboxAddressFrom);
+            mimeMessage.To.Add(mailboxAddressTo);
 
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.TextBody = "Girişi həyata keçirmək üçün bu kodu yazın: " + code;
+            mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+            mimeMessage.Subject = "Kitabal.biz.tr təstiq kodu";
+
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 587, false);
+            client.Authenticate("bookstore20232024@gmail.com", "jojz ffgj jdrk cgub");
+            client.Send(mimeMessage);
+            client.Disconnect(true);
+
+            TempData["Mail"] = registerDto.Email;
+
+            return RedirectToAction(nameof(Index), "ConfirmMail");
         }
-        public async Task<IActionResult> Test()
-        {
-            var user = await userManager.FindByNameAsync("Ruslan");
-            await userManager.AddToRoleAsync(user, "Admin");
-            return View();
-        }
+
 
     }
 }
