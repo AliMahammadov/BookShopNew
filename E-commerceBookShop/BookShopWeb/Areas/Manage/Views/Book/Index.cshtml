@@ -3,64 +3,6 @@
 }
 @model IEnumerable<Book>
 <h1>Index</h1>
-
-@*<main id="main" class="main">
-
-    <div class="pagetitle">
-        <h1>Data Tables</h1>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                <li class="breadcrumb-item">Books</li>
-                <li class="breadcrumb-item active">see</li>
-            </ol>
-        </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section">
-        <div class="row">
-            <div class="col-lg-12">
-
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Books</h5>
-
-                        <!-- Table with stripped rows -->
-                        <table class="table datatable">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Start Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var books in Model)
-                                {
-                                    <tr>
-                                        <th scope="row">@books.Id</th>
-                                        <td>@books.Name</td>
-                                        <td>Designer</td>
-                                        <td>28</td>
-                                        <td>2016-05-25</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                        <!-- End Table with stripped rows -->
-                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-</main>*@
-
-<!-- End #main -->
 <!-- ======= Footer ======= -->
 
 <main id="main" class="main">

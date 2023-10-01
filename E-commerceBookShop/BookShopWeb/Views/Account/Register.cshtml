@@ -1,4 +1,4 @@
-﻿@model RegisterVM
+﻿@model AppUserRegisterDto
 
 @{
     ViewData["Title"] = "Register";
@@ -47,11 +47,12 @@
 
                                 <div class="ml-2" style="width:100%">
                                     <label>Şifrəni təkrar yaz</label>
-                                    <input asp-for="RepeatPassword" class="form-control" value="" required />
-                                    <span style="color:red" asp-validation-for="RepeatPassword"></span>
+                                    <input asp-for="ConfirmPassword" class="form-control" value="" required />
+                                    <span style="color:red" asp-validation-for="ConfirmPassword"></span>
                                 </div>
                             </div>
-
+                            <div style="color:red;text-align:center" asp-validation-summary="ModelOnly"></div>
+                            <br />
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Qeydiyyatdan keç</button>
 
                         </form>

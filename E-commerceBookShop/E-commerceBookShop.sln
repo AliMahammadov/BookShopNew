@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopCore", "BookShopCore\BookShopCore.csproj", "{DDE49EF5-426B-45A5-9AC1-E3DE1B96F8D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopCore", "BookShopCore\BookShopCore.csproj", "{DDE49EF5-426B-45A5-9AC1-E3DE1B96F8D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopData", "BookShopData\BookShopData.csproj", "{E712ED8D-3E4B-4196-BB39-9B7BBBF423A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopData", "BookShopData\BookShopData.csproj", "{E712ED8D-3E4B-4196-BB39-9B7BBBF423A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopEntity", "BookShopEntity\BookShopEntity.csproj", "{9296B876-DE7E-4D32-AF42-F472521A350D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopEntity", "BookShopEntity\BookShopEntity.csproj", "{9296B876-DE7E-4D32-AF42-F472521A350D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopService", "BookShopService\BookShopService.csproj", "{D9B4DCEF-8447-430B-BFD4-68CDCC73E620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopService", "BookShopService\BookShopService.csproj", "{D9B4DCEF-8447-430B-BFD4-68CDCC73E620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopViewModel", "BookShopViewModel\BookShopViewModel.csproj", "{1EC5F979-BA8A-4BAE-8A15-C93BDE8AB230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopViewModel", "BookShopViewModel\BookShopViewModel.csproj", "{1EC5F979-BA8A-4BAE-8A15-C93BDE8AB230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopWeb", "BookShopWeb\BookShopWeb.csproj", "{9C8B1954-B576-4F09-9F0A-E548C6EE6855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopWeb", "BookShopWeb\BookShopWeb.csproj", "{9C8B1954-B576-4F09-9F0A-E548C6EE6855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopDto", "BookShopDto\BookShopDto.csproj", "{BCDA1EB7-D79A-4F40-8866-62159D1C4422}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9C8B1954-B576-4F09-9F0A-E548C6EE6855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C8B1954-B576-4F09-9F0A-E548C6EE6855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C8B1954-B576-4F09-9F0A-E548C6EE6855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCDA1EB7-D79A-4F40-8866-62159D1C4422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDA1EB7-D79A-4F40-8866-62159D1C4422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDA1EB7-D79A-4F40-8866-62159D1C4422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDA1EB7-D79A-4F40-8866-62159D1C4422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

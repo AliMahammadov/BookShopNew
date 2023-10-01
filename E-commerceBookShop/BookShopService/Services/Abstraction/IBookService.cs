@@ -7,7 +7,6 @@ namespace BookShopService.Services.Abstraction
     public interface IBookService
     {
         Task<ICollection<Book>> GetAllBooksAsync();
-        Task<IEnumerable<Book>> GetAllBooksWithPagination(int page);
         Task AddBookAsync(BookVM bookVM);
         Task DeleteBookAsync(int? id);
         Task<Book> GetBookByIdAsync(int? id);
