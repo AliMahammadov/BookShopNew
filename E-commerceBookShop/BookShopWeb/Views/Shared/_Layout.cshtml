@@ -79,7 +79,7 @@
 
                     else
                     {
-                        <a asp-action="LogIn" asp-controller="Account">
+                        <a asp-action="Index" asp-controller="Login">
                             Giriş
                         </a>
                     }
@@ -141,7 +141,7 @@
                                                 <a asp-controller="Home" asp-action="Index" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-sign-in-alt"></i></a>
                                                 <div class="dropdown-menu">
                                                     <ul>
-                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="LogIn" asp-controller="Account" class="dropdown-item">Giriş</a></li>
+                                                        <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Index" asp-controller="Login" class="dropdown-item">Giriş</a></li>
                                                         <li><i class="lni-angle-double-right right-arrow"></i><a asp-action="Register" asp-controller="Account" class="dropdown-item">Qeydiyyat</a></li>
                                                     </ul>
                                                 </div>
@@ -246,7 +246,7 @@
                             <h4 class="text-center text-md-left">Hesab Məlumatı</h4>
                             <ul class="text-center text-md-left">
                                 <li><a href="javascript:void(0)">Mənim Hesabım</a></li>
-                                <li><a asp-controller="Account" asp-action="Login">Giriş & Qeydiyyatdanr</a></li>
+                                <li><a asp-controller="Login" asp-action="Index">Giriş & Qeydiyyatdanr</a></li>
                             </ul>
                         </div>
                     </div>
