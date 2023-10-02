@@ -28,7 +28,7 @@ namespace BookShopWeb.Controllers
 
             if(appuseremail is not null)
             {
-                ModelState.AddModelError("Email", "Bu email artıq mövcuddur.");
+                ModelState.AddModelError("", $"'{appuseremail}' emaili artıq mövcuddur.");
                 return View();
             }
 
@@ -40,6 +40,7 @@ namespace BookShopWeb.Controllers
 
             Random random = new Random();
             int code = random.Next(100000, 1000000);
+
             AppUser user = new AppUser()
             {
                 Name = registerDto.Name,

@@ -25,11 +25,11 @@ namespace BookShopWeb.Controllers
         public async Task<IActionResult> Index(ConfirmMailVM confirmMail)
         {
             var user = await userManager.FindByEmailAsync(confirmMail.Email);
-            if(user.ConfirmCode == confirmMail.ConfirmCode)
+            if(user.ConfirmCode == int.Parse(confirmMail.ConfirmCode))
             {
                 user.EmailConfirmed = true;
                 await userManager.UpdateAsync(user);
-                return RedirectToAction(nameof(Index), "Home");
+                return RedirectToAction(nameof(Index), "Login");
             }
             return View();
         }

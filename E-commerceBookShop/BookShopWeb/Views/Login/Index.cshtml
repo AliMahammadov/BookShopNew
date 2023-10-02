@@ -1,4 +1,5 @@
-﻿@*@model LoginVM
+﻿
+@model AppUserLoginDto
 
 @{
     ViewData["Title"] = "Login";
@@ -15,13 +16,13 @@
 
                             <div class="form-outline">
                                 <label>İstifadəçi adı</label>
-                                <input asp-for="Username" class="form-control" />
-                                <span style="color:red" asp-validation-for="Username"></span>
+                                <input asp-for="UserName" class="form-control" required />
+                                <span style="color:red" asp-validation-for="UserName"></span>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <label>Şifrə</label>
-                                <input asp-for="Password" class="form-control" />
+                                <input asp-for="Password" class="form-control" required />
                                 <span style="color:red" asp-validation-for="Password"></span>
                             </div>
 
@@ -30,6 +31,10 @@
                                 <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
                                 <label class="form-check-label" for="form1Example3">Məni xatırla </label>
                             </div>
+
+                            <div style="color:red;text-align:center" asp-validation-summary="ModelOnly"></div>
+                            <br />
+
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Daxil ol</button>
 
                         </form>
@@ -42,4 +47,4 @@
             </div>
         </div>
     </div>
-</section>*@
+</section>
