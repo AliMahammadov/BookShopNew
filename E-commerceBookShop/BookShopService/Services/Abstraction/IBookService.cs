@@ -15,5 +15,6 @@ namespace BookShopService.Services.Abstraction
         Task<BookVM> GetBookEditAsync(int? id);
         Task UpdateBookAsync(int? id, BookVM bookVM);
         Task<PaginationVM<Book>> PaginationForBookAsync(int page);
+        Task<Book> GetBookViewAsync(int? id);
     }
 }

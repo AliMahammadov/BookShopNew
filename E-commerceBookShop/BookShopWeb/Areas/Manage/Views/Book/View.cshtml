@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+@model Book
+<!-- End Header -->
+<!-- ======= Sidebar ======= -->
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Manage" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item">Book</li>
+                <li class="breadcrumb-item active">View</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+
+            <div class="col-lg-6 container">
+
+
+                <div class="card container">
+                    <div class="card-body">
+                        <h5 class="card-title">View book</h5>
+
+                        <!-- No Labels Form -->
+                        <form class="row g-3">
+                            <div class="col-md-12">
+                                <label for="inputState">Book Name</label>
+                                <input asp-for="Name" class="form-control" readonly />
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="inputState">Image</label><br />
+                                <img style="width:100%;" src="~/manage/img/book/@Model.ImageUrl" />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Publisher</label>
+                                <input asp-for="Publisher" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Author</label>
+                                <input asp-for="Author" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Price</label>
+                                <input asp-for="Price" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Instagram</label>
+                                <input asp-for="Instagram" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Facebook</label>
+                                <input asp-for="Facebook" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Short Description</label>
+                                <textarea rows="6" asp-for="ShortDescription" class="form-control" readonly></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Long Description</label>
+                                <textarea rows="10" asp-for="LongDescription" class="form-control" readonly></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">Page Count</label>
+                                <input asp-for="PageCount" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState">SKU</label>
+                                <input asp-for="SKU" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState" >Category</label>
+                                <input asp-for="Category.Name" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputState" >Language</label>
+                                <input asp-for="Language" class="form-control" readonly />
+                            </div>
+
+
+                            <div>
+                                <a class="btn btn-warning" asp-controller="Book" asp-action="Index" title="Return"><i class="bi bi-arrow-return-right"></i></a>
+                            </div>
+                        </form><!-- End No Labels Form -->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->

@@ -21,9 +21,12 @@ namespace BookShopWeb.Areas.Manage.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index() => View(await bookService.GetAllBooksAsync());
+        public async Task<IActionResult> Index(int page = 1)
+        {
+            return View(await bookService.PaginationForBookAsync(page));
+        }
 
-        [HttpGet]
+            [HttpGet]
         public async Task<IActionResult> Add()
         {
             ViewBag.Categories = new SelectList(appDbContext.Categories, nameof(Category.Id), nameof(Category.Name));
@@ -45,6 +48,14 @@ namespace BookShopWeb.Areas.Manage.Controllers
             if (!ModelState.IsValid) return BadRequest();
             await bookService.DeleteBookAsync(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> View(int id)
+        {
+            if (!ModelState.IsValid) return View();
+            var book = await bookService.GetBookViewAsync(id);
+            return View(book);
         }
 
         [HttpGet]

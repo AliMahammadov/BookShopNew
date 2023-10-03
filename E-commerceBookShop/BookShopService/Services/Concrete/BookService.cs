@@ -113,6 +113,11 @@ namespace BookShopService.Services.Concrete
             return await appDbContext.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
         }
 
+        public async Task<Book> GetBookViewAsync(int? id)
+        {
+            return await appDbContext.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
         public async Task<PaginationVM<Book>> PaginationForBookAsync(int page)
         {
             PaginationVM<Book> paginationVM = new PaginationVM<Book>();
