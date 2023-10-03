@@ -1,5 +1,4 @@
-﻿using BookShopService.Services.Abstraction;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopWeb.Areas.Manage.ViewComponents
 {
