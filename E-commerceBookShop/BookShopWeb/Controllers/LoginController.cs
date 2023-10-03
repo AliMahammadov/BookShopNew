@@ -46,6 +46,8 @@ namespace BookShopWeb.Controllers
                 if (user.EmailConfirmed is true)
                     return RedirectToAction("Index", "Home");
             }
+
+            ModelState.AddModelError("", $"'{loginDto.UserName}' belə bir istifadəçi yoxdur.");
             return View();
         }
     }

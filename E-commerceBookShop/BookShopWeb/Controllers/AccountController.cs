@@ -11,10 +11,12 @@ namespace BookShopWeb.Controllers
     {
 
         private readonly UserManager<AppUser> userManager;
+        private readonly SignInManager<AppUser> signInManager;
 
-        public AccountController(UserManager<AppUser> userManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         [HttpGet]
@@ -28,7 +30,7 @@ namespace BookShopWeb.Controllers
 
             if(appuseremail is not null)
             {
-                ModelState.AddModelError("", $"'{appuseremail}' emaili artıq mövcuddur.");
+                ModelState.AddModelError("", $"'{appuseremail.Email}' emaili artıq mövcuddur.");
                 return View();
             }
 
@@ -82,6 +84,13 @@ namespace BookShopWeb.Controllers
             TempData["Mail"] = registerDto.Email;
 
             return RedirectToAction(nameof(Index), "ConfirmMail");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SignOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Index), "Home");
         }
 
 
