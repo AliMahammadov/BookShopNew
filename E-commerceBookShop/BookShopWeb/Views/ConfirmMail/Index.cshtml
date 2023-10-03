@@ -134,13 +134,26 @@
             <div class="modal-content">
                 <form method="post">
                     <div class="modal-body text-center">
-                        <h4>Təstiq</h4>
-                        <p>@TempData["Mail"] ünvanına tƏstiq mesajı göndərildi. Email ünvanınıza nəzər yetirin.</p>
-                        <div class="form-group">
-                            <input asp-for="Email" class="form-control" type="hidden" value="@TempData["Mail"]">
-                            <input asp-for="ConfirmCode" class="form-control" placeholder="6 xanalı daxil edin" required>
-                            <input type="submit" class="btn btn-primary" value="Daxil et">
-                        </div>
+                        @if (TempData["Mail"] is not null)
+                        {
+                            <h4>Təstiq</h4>
+                            <p>@TempData["Mail"] ünvanına tƏstiq mesajı göndərildi. Email ünvanınıza nəzər yetirin.</p>
+                            <div class="form-group">
+                                <input asp-for="Email" class="form-control" type="hidden" value="@TempData["Mail"]">
+                                <input asp-for="ConfirmCode" class="form-control" placeholder="6 xanalı kodu daxil edin" required />
+                                <br />
+                                <div style="color:red;text-align:center;" asp-validation-summary="ModelOnly"></div>
+                                <input type="submit" class="btn btn-primary" value="Daxil et">
+                            </div>
+                        }
+                        else
+                        {
+                            <h4>Zəhmət olmasa qeydiyyatdan keçin</h4>
+                            <div class="form-group">
+                                <a class="btn btn-primary" asp-controller="Account" asp-action="Register">Qeydiyyatdan keç</a>
+                            </div>
+                        }
+
                     </div>
                 </form>
             </div>

@@ -17,20 +17,37 @@ namespace BookShopWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var value = TempData["Mail"];
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(ConfirmMailVM confirmMail)
         {
-            var user = await userManager.FindByEmailAsync(confirmMail.Email);
-            if(user.ConfirmCode == int.Parse(confirmMail.ConfirmCode))
+            if(ModelState.IsValid)
             {
-                user.EmailConfirmed = true;
-                await userManager.UpdateAsync(user);
-                return RedirectToAction(nameof(Index), "Login");
+                var user = await userManager.FindByEmailAsync(confirmMail.Email);
+                if (user is not null)
+                {
+                    try
+                    {
+                        if (user.ConfirmCode == int.Parse(confirmMail.ConfirmCode))
+                        {
+                            user.EmailConfirmed = true;
+                            await userManager.UpdateAsync(user);
+                            return RedirectToAction(nameof(Index), "Login");
+                        }
+                    }
+                    catch
+                    {
+                        ModelState.AddModelError("", $"'{confirmMail.ConfirmCode}' yanlış kod, zəhmət olmasa Emailinizə göndərilməş kodu daxil edin.");
+                        TempData["Mail"] = confirmMail.Email;
+                        return View();
+                    }
+                }
             }
+
+            TempData["Mail"] = confirmMail.Email;
+            ModelState.AddModelError("", $"Kod sahəsi boş keçilə bilməz.");
             return View();
         }
     }

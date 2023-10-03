@@ -72,7 +72,7 @@ namespace BookShopData.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BasketContacts");
+                    b.ToTable("BasketContacts", (string)null);
                 });
 
             modelBuilder.Entity("BookShopEntity.Entities.Category", b =>
@@ -98,7 +98,7 @@ namespace BookShopData.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("BookShopEntity.Entities.Contact", b =>
@@ -140,7 +140,7 @@ namespace BookShopData.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("BookShopEntity.Entities.Review", b =>
@@ -179,7 +179,7 @@ namespace BookShopData.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("BookShopEntity.Entity.Book", b =>
@@ -250,7 +250,7 @@ namespace BookShopData.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
